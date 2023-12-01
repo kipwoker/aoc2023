@@ -1,9 +1,12 @@
 mod day01;
+mod day00;
 
 use std::{env, fs};
 
 fn main() {
     let day = "01";
+    let solver: fn(String) -> String = day01::solve;
+
     let binding = env::current_dir().expect("Current directory not found");
     let current_dir = binding.display();
     println!("Launched from dir {current_dir}");
@@ -15,7 +18,7 @@ fn main() {
 
     for path in input_paths {
         let input_content = fs::read_to_string(path).expect("File not found");
-        let output = day01::solve(input_content);
+        let output = solver(input_content);
         println!("Result: {output}")
     }
 }
