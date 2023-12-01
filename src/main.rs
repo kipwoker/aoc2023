@@ -1,11 +1,14 @@
 mod day01;
+mod core;
 mod day00;
 
 use std::{env, fs};
+use crate::core::Solution;
+use crate::day01::Day01;
 
 fn main() {
-    let day = "01";
-    let solver: fn(String) -> String = day01::solve;
+    let solution = Day01 {};
+    let day = solution.get_day();
 
     let binding = env::current_dir().expect("Current directory not found");
     let current_dir = binding.display();
@@ -18,7 +21,7 @@ fn main() {
 
     for path in input_paths {
         let input_content = fs::read_to_string(path).expect("File not found");
-        let output = solver(input_content);
+        let output = solution.solve(input_content);
         println!("Result: {output}")
     }
 }
