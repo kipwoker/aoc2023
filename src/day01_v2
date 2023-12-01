@@ -1,0 +1,176 @@
+use std::collections::HashMap;
+use crate::core::Solution;
+use crate::day01::End::{No, Yes};
+use crate::day01::IterationResult::{Matched, Matching, NotMatched};
+
+pub struct Day01v2 {}
+
+#[derive(Debug)]
+enum End<'a> {
+    No,
+    Yes(&'a i32),
+}
+
+#[derive(Debug)]
+struct Node<'a> {
+    children: HashMap<char, Node<'a>>,
+    end: End<'a>,
+}
+
+#[derive(Debug)]
+struct Trie<'a> {
+    root: Node<'a>,
+}
+
+impl<'a> Trie<'a> {
+    fn new() -> Self {
+        Trie { root: Node::new() }
+    }
+
+    fn put(&mut self, word: &str, value: &'a i32) {
+        let mut cursor = &mut self.root;
+        for ch in word.chars() {
+            cursor = cursor.children.entry(ch).or_insert(Node::new());
+        }
+        cursor.end = Yes(value);
+    }
+
+    fn find_first(&'a self, chars: impl Iterator<Item=char>) -> Option<&'a i32> {
+        let mut trie_cursor = &self.root;
+        let mut iterator = chars.enumerate();
+        let mut char_cursor = iterator.next();
+        let mut after_skip = false;
+        loop {
+            if let Some((_, c)) = char_cursor {
+                //print!("Compare: {c} == ");
+                let result = trie_cursor.iterate(&c);
+                match result {
+                    Matching(next) => {
+                        //println!("next");
+                        trie_cursor = next;
+                        char_cursor = iterator.next();
+                        after_skip = false;
+                    }
+                    Matched(value) => {
+                        //println!("matched {value}");
+                        return Some(value);
+                    }
+                    NotMatched => {
+                        if after_skip {
+                            //println!("skip2");
+                            char_cursor = iterator.next();
+                            after_skip = false;
+                        } else {
+                            //println!("skip1");
+                            trie_cursor = &self.root;
+                            after_skip = true;
+                        }
+                    }
+                };
+            } else { break; }
+        }
+        None
+    }
+}
+
+#[derive(Debug)]
+enum IterationResult<'a> {
+    Matching(&'a Node<'a>),
+    Matched(&'a i32),
+    NotMatched,
+}
+
+impl<'a> Node<'a> {
+    fn new() -> Self {
+        Node { children: HashMap::new(), end: No }
+    }
+
+    fn iterate(&'a self, c: &char) -> IterationResult<'a> {
+        let result = self.children.get(c);
+        //let keys: Vec<_> = self.children.keys().collect();
+        //print!("[{keys:?}] ==> ");
+        return match result {
+            None => NotMatched,
+            Some(n) =>
+                match n.end {
+                    No => Matching(n),
+                    Yes(value) => Matched(&value)
+                }
+        };
+    }
+}
+
+impl Solution for Day01 {
+    fn get_day(&self) -> &'static str {
+        "01"
+    }
+    fn solve(&self, input: String) -> String {
+        let lines = input.split("\n");
+
+        let map = HashMap::from([
+            ("one", 1),
+            ("two", 2),
+            ("three", 3),
+            ("four", 4),
+            ("five", 5),
+            ("six", 6),
+            ("seven", 7),
+            ("eight", 8),
+            ("nine", 9)
+        ]);
+
+        let (forward, reward) = init_cursors(&map);
+
+        // println!("Forward: {forward:?}");
+        // println!("Reward: {reward:?}");
+
+        let mut sum = 0;
+        for line in lines {
+            let left = forward.find_first(line.chars());
+            let right = reward.find_first(line.chars().rev());
+            let num = match (left, right) {
+                (_, None) => {
+                    println!("Fail right {line}");
+                    -1000
+                }
+                (None, _) => {
+                    println!("Fail left {line}");
+                    -1000
+                }
+                (Some(left), Some(right)) => {
+                    //println!("*** Matched {left} and {right} ***");
+                    left * 10 + right
+                }
+            };
+
+            sum += num;
+        }
+
+        sum.to_string()
+    }
+}
+
+fn init_cursors<'a>(map: &'a HashMap<&str, i32>) -> (Trie<'a>, Trie<'a>) {
+    let mut forward = Trie::new();
+    let mut reward = Trie::new();
+
+    for (key, value) in map.iter() {
+        let num = value.to_string();
+        let num = num.as_str();
+
+        let reverse_key = reverse_str(key);
+        let reverse_key = reverse_key.as_str();
+
+        forward.put(key, value);
+        forward.put(num, value);
+
+        reward.put(reverse_key, value);
+        reward.put(num, value);
+    }
+
+    (forward, reward)
+}
+
+fn reverse_str(input: &str) -> String {
+    input.chars().rev().collect()
+}
