@@ -1,0 +1,2023 @@
+===================
+Use input: inputs/01.test.txt
+two1nine
+2 9
+eightwothree
+8 3
+abcone2threexyz
+1 3
+xtwone3four
+2 4
+4nineeightseven2
+4 2
+zoneight234
+1 4
+7pqrstsixteen
+7 6
+Result 1:
+Result 2: 281
+===================
+Use input: inputs/01.txt
+shrzvdcghblt21
+2 1
+sixdddkcqjdnzzrgfourxjtwosevenhg9
+6 9
+threevt1onegxgvc9flk
+3 9
+7dmqzksnlcpbsqkzqlfour1four
+7 4
+4seven9gdlnhqxfseven94five
+4 5
+nldeightwoshgnsjnzmbkbxcxltsqtstrgdmvqvxbfour6six
+8 6
+87mmlvfr4
+8 4
+six1vvrlxx8two
+6 2
+znmfvdlhvjtwo9three4tzjqcfcgnsevenccvnsjczlpm
+2 7
+5sixninesixnh
+5 6
+three1tbtwo
+3 2
+five9seventwobqsjqzxkptkhsix1
+5 1
+74fivemn
+7 5
+sevenfivetsglnine8three
+7 3
+spnvnfkbv4eightlmdkxmsfour574eight
+4 8
+one4four2fivedcpqjmgc8
+1 8
+two6sevensix33
+2 3
+krc34five
+3 5
+doneight64qgc251four7
+1 7
+vpjthc6
+6 6
+threethxbtffhbfourfive3
+3 3
+onetwo5
+1 5
+1sevenngjqsfrptq8stgzxgjfp
+1 8
+1576sevenninefhfqd4
+1 4
+nine4nine9ninefive
+9 5
+zp8sfveight9twotgbvscb
+8 2
+eight27nrzmfsix7nine7two
+8 2
+gsfivefivepmq9nineftndvlcph
+5 9
+znggdvvkjthreethree79eight4
+3 4
+7twofivethree7ninevtspmbfxnr
+7 9
+four9twoxthdxdc7two1
+4 1
+8ddcmt87xhkqjbgtmkpjlkhd7sevenfour
+8 4
+4four6
+4 6
+seven5tmzksnsv9six
+7 6
+6fivesixlxfrqbkfive
+6 5
+seven9one8jxqkhbfppt
+7 8
+hxsbgn6four7
+6 7
+7pglchqndpnknhvcnkthreefour2
+7 2
+bkkfjq6dklbppfvgsshgrbmtwo97
+6 7
+66eightsix3nine652
+6 2
+six6zjjfffhrflrvkjgdrstcqpqt1eight
+6 8
+four252bqdxzzfttkq85tqnl
+4 5
+pbgjmdfxjvzdxjjdtwo5sixtwofivesxdcxtn
+2 5
+jonesix2five4snxcbgmx
+1 4
+62rceightsix
+6 6
+fivenine5
+5 5
+nzcxfqhvninefive3nz
+9 3
+4474rcl
+4 4
+1bjlvthree1tjthreethree
+1 3
+bgx2six8vlbdmgsrkone9bdgzsfljlk
+2 9
+seven52
+7 2
+fivesixtwo1two
+5 2
+njznm98
+9 8
+3xhrsfshnine7five
+3 5
+four9eightzcmsevennzfrxtsixone
+4 1
+jjsxs4mgqnstgpreight1
+4 1
+bhv9kr8three
+9 3
+sklnine1six4
+9 4
+five52734eighttghkkszrdllrr
+5 8
+93one
+9 1
+qrlmcmfgsx55onetwo
+5 2
+86dnnrmms6gxskhcghct97glkrlzrdrscfcld
+8 7
+xxb283cftvdg
+2 3
+hxtwoneqpmbfgkhnr6three86eight7five
+2 5
+zjfczdbpgxtkffkl5
+5 5
+fivexnqvfiveoneszqkzdfclxkrj8
+5 8
+8onerj7mhl
+8 7
+6fivefive8eightsevenqc8
+6 8
+eight89nineonelmfst193
+8 3
+ninetwothree5six5gd8
+9 8
+eight6dvvd
+8 6
+sevenztbdzndhv5threefour
+7 4
+two8onebppzkln6
+2 6
+twothree54six
+2 6
+seven8ninetwonndtgkj1
+7 1
+cpjckcfnqrrgdzfbrtbdfive8vkl
+5 8
+6six5jzxqqtrpflpdqbkgktsvpjgrhggsmvltwomq
+6 2
+sixhbft5lnqfseventhreefour
+6 4
+23pqkgleightxvscbnxnp55rb
+2 5
+6fivesfhqmzm7qkdvjss8
+6 8
+twofivefiveeightdcl4
+2 4
+9fourfourdqfqhpbbkgtchk2nrvmrghnkdc
+9 2
+sixlzbpttdhlssixdhmvrrgxj6
+6 6
+glphjgxqvbjcqjpdsixlsgd3
+6 3
+qcghmvgbmj9fourfivepztxbjpnzpbxzckgnhd4
+9 4
+kjvoneighteightfivepsbkgdgpndxx7six8
+1 8
+five95oneeighttpdk64xxndq
+5 4
+1vqxhglhnhrpbnlvq
+1 1
+sixtwo34sevensevenrnflkfxmlthree
+6 3
+pbscshhhpeighteight668fourphkdcrjrf
+8 4
+threex1jpdsmc
+3 1
+4pnhtjzlfdcgffour3
+4 3
+338
+3 8
+62six7nn
+6 7
+1fgq3onethree
+1 3
+7eightzvxmvxbq965nine1hr
+7 1
+gsdqtgkhlhdff7fourtwo4threesixthree
+7 3
+918hjpgbz6kbdxeight9one
+9 1
+7dxhsk9ninejjbninefour
+7 4
+one2mblcjnine
+1 9
+9twoc
+9 2
+fxrkzvpkb3tdvlxxchbfsixbmmmctknxh1
+3 1
+pbzdkmkxczkgh5xsixtwo6kfgqsgx
+5 6
+6eighttwodsfppgxrzx9threeseven
+6 7
+zzkbhltv7ngthreetwofivegdzrmllnxp
+7 5
+sgfour67three2seven3
+4 3
+sqglnvlrn4sixmdnineeightthree
+4 3
+1kbkmkdnc35eightxbbknllscr
+1 8
+2bzrg
+2 2
+3onenine
+3 9
+threevkzrmdbnbsxrmzjtdhbeight12rncbzmq
+3 2
+sxcrgkvbrtwo17six527five
+2 5
+9rbsbcjp239jvlfpn5jrr
+9 5
+nine8vjcbjcxxprdcf4
+9 4
+nineeightsevenchjczgdvjvtqlkjsqvrzxxvlqlp65
+9 5
+hdgqninefive9sevensix3gzb
+9 3
+6fjv5
+6 5
+pmgdvcdp1fivetxkmjzone
+1 1
+eightsevenklxgcj8sixccqlnxzmbeight
+8 8
+bkcdmscssixsixtwozbdzcpgpbsvf38
+6 8
+ninefourrcmrfvszsqhpxcs89onecnzjvhrphs
+9 1
+54plhhmnmkvonethree2ktzncds
+5 2
+pkglbgdplgvlstpgpnsmlsixcpmfxfbfbtpsdxninenine4
+6 4
+one6qhcqnkqc9hfrsqpxmcm7eight3
+1 3
+threepdtshdskxgeightjtdpfbtlnph91
+3 1
+fmpjgjqpgbpx8two8jzqchdglhtfiveeightpzktj
+8 8
+njqhghlvm2
+2 2
+dj3
+3 3
+3j
+3 3
+eight9cgbcppzjbl1tgjhm
+8 1
+fvkhcvflpknqnh9ninetwoneqn
+9 1
+threemfour3eighteight
+3 8
+qjmtvcbvzzgxmmpdvrfv8
+8 8
+tlzqpfsix1fbhgdvhblvgk
+6 1
+eight451qvnhv4
+8 4
+7mxcvmpkdvdsjqdd
+7 7
+6ninetwodmbjfour52
+6 2
+jdq2sheight
+2 8
+seven2foursixvhlmsjld
+7 6
+ndoneight361
+1 1
+poneightfourfourdhlnmlnpvnsixone77
+1 7
+6gnxprrthree9
+6 9
+ktbhqxmvcbczfspfddnjjcz7
+7 7
+4nineqsk5two5ksljzqmnrrhftqvmvhfqvxtg
+4 5
+cgllkmq1fivevlcxkmj4twohpclqj
+1 2
+fivebdkfgmlzckstbmone58fourc1
+5 1
+6sixninebkmlgpspthreesevenhfrhtfqnl85
+6 5
+27fivezqskxvqqp7
+2 7
+7vklrcvmq2nldrglnlkmdjgzone
+7 1
+4fivemzjhhvmm
+4 5
+76fournineeightthreesix
+7 6
+threen45nctdxmgd
+3 5
+eightfivetwotjbsvvrfourseven4djjfftk9
+8 9
+lrxjcgdxhtprfpvn9eightsix
+9 6
+foursix7lbjqxb1lzsztxcrhx
+4 1
+dlxftspksone9mfive
+1 5
+ninefiveeightone2
+9 2
+nzbvf3ninexsixsix
+3 6
+1eightjsqbvpcfsevenvdkhbxzfournine5pttjffj
+1 5
+6kxdmlhtslf2rzmbrdrvvqmtceightwojj
+6 2
+3fjxhq
+3 3
+j9
+9 9
+lj7onesevennine7threeeightvmgvtzcg
+7 8
+pmmrbq4
+4 4
+seven3fourq81l
+7 1
+2four4gqdpczpg
+2 4
+6sevengzdxmfpflfivefivevgnhspxchsfive
+6 5
+3c7gpgbnlfhlrthpmtsvpctjhzf5seven
+3 7
+kgtczfjdeight8hpcmkz
+8 8
+one5xkhnfvjh92ninevxkzvkg6
+1 6
+nzp2
+2 2
+eight226three5sevenhhxhqxns
+8 7
+9hgfj85zxvppflblvjlq
+9 5
+sixfour8hzlrbqjtjcgrxseight
+6 8
+6tlxtwo4258kbdtx
+6 8
+ninemhvrlcqvdthree5
+9 5
+8xfmjzp
+8 8
+nineldrbpxqmhffrjrcx11
+9 1
+mqvjnkjr6dx8
+6 8
+575cfbnine14
+5 4
+threeqnxnfjmttwo7
+3 7
+pvmxfgvhrlqn4fivefivesevensix1znt
+4 1
+sevenphcrjjhnfive63three
+7 3
+sixxdjplseven8seven8qlxfvgktf
+6 8
+hdgnr6sevenddzptcvprbhvnine
+6 9
+onebrhnsqbnzvmckmtmprjkbfvn6
+1 6
+hxqdjrmr94five9qnkl5
+9 5
+g3fourfive6
+3 6
+22eight6vsmtrxsix78
+2 8
+jrlrfsnine9
+9 9
+tqpkqdtknvfj2xgzrjpsvgphlbtthree
+2 3
+qvczktnrfvmgpznspqtsevensevenslmjdqfdld5rrcfour
+7 4
+rmgeight36sxvxzgnine7bs
+8 7
+sevenlt2fnqjtkvrj
+7 2
+seven9lhfzhmhdonelxvxfqdlxlscjbqgvnlbm7
+7 7
+3183six4seven4two
+3 2
+bpl12mcdpzrzbph9fourninercpqzrn
+1 9
+eightzltzdmcd4615nmone
+8 1
+5bgzh8hrrtjhnine62
+5 2
+ndnzpnptz6twokdvg563fiveqkszkccqc
+6 5
+6npdfqtwo
+6 2
+onetwomcxkncm3mjsrknhktgdfbqjmone
+1 1
+sixtpmdfmrjone6six
+6 6
+7fourthreekqvbhfourfivenine
+7 9
+98337
+9 7
+pvkrzdzbdj9
+9 9
+8krztxtqkqksixr264
+8 4
+5sppmxxkdonezfvbdcsix
+5 6
+dhvmctjcjfivec7pjmtnlqs
+5 7
+dgzl9sixggxstwoneprr
+9 1
+gnbmxn1cjnq3three6rpsrqmtwo
+1 2
+176seven17six
+1 6
+sbvfive3six
+5 6
+8seventhree64pcffive
+8 5
+fourgvhbrsfjzsevenfivenineninesixznq2
+4 2
+nine426six8zk
+9 8
+4sevenfpnmsqlhllrxrhjonesmgfhzmhvstwo3
+4 3
+fivesixtwosevenlfbpczfv3six8
+5 8
+8fourltcpdnhg178fourglz
+8 4
+rdfqcdrxdc6twotwo8fourthreeftrlzseven
+6 7
+97threefive7
+9 7
+sevenoneoneszdxd77two
+7 2
+g91q392four
+9 4
+2twodb
+2 2
+jbtfkfourggc5zkc3nineninekv
+4 9
+379eight
+3 8
+hhxcbflcv6fiveszpch46
+6 6
+threexfsfv3dpfourfiveone
+3 1
+fivevd145one629
+5 9
+31vdzxxkxsmznrqjzpqj5onescbck
+3 1
+9onejbnvrbmtgm
+9 1
+thrjvpckm4vglthree
+4 3
+zvhmxzsixfjddvjq1four8lktthree
+6 3
+74seven84rslpcjtpfourcvvqlstmqn
+7 4
+dfxdqr3eighthfhcldhgmjcpbxbzp
+3 8
+sevenbgs1seven9bjntphktdktzhrzpfcfs
+7 9
+7kqkdzncd4sevensevenfourv8two
+7 2
+mjeightwolsk2sgnhgxstfourhbhthreeonenine3
+8 3
+4nts
+4 4
+nslvxzffoureightfour5eightczsptpg8
+4 8
+bcckncblzdsixxrdprtsmbjdzxzlnzfbgmkfd2
+6 2
+8fourninesix4fourseven
+8 7
+twospxvtbcjfour3seven
+2 7
+four2cqkxkbplbpb
+4 2
+54fourtwo2xd
+5 2
+tljfive7bsxmonesixl
+5 6
+8mxd8czpdrgxbtwoeightrqpghngcvt
+8 8
+3sxrzljnzlr9threetknfcc5seven4
+3 4
+eighteightfourtwo8fournine7
+8 7
+jjzxf153mdzhh
+1 3
+3three95one8vsmzkrlvhq
+3 8
+ninefour4pzqzntwo2nine
+9 9
+onefournine8gvp
+1 8
+45vmbrpblzjxthhonesix8
+4 8
+lmmrxm5
+5 5
+13mhm6zxmkhbcsixhz8
+1 8
+mhsjcprhdh7ninemgrxnqzt7pdtxxvsix
+7 6
+twothreesixqcjtzcxmd3ninezqrvnzlxt
+2 9
+hreightwo51tb27fivesevenseven
+8 7
+fivebktq86nine5kd
+5 5
+one6nglzxzkzrmfl12nine6
+1 6
+2th9mms4six3
+2 3
+msix5bqbtwosix
+6 6
+four1hfrmxsix3five
+4 5
+nrtjrkkfour6fivefour7fivertjnxbbzg
+4 5
+jmjqmxrtjr23phttwo
+2 2
+79
+7 9
+6twones
+6 1
+sn6fivesixfourhhjhrfthree
+6 3
+xdfxgzccsvonefivenmqleightfivel9nine
+1 9
+78sevensix21
+7 1
+rkmncslfr6hdhtlchnznineoneeight4
+6 4
+seven1496
+7 6
+8fivekhfrfjtwo3eight9six4
+8 4
+jnrtwoneslxrgkeight67fivetwolbhvfftqjhl
+2 2
+eight6eight4two
+8 2
+dhcxc1
+1 1
+fivenpblbgfive6moneighttzj
+5 8
+onef5nppkqcl6mnzhvsixjvcqpbtb
+1 6
+7tjggz68four4six28
+7 8
+zfntm7
+7 7
+3sgbsbn2fivefour3
+3 3
+8bmtcgtqcsmdktzmj3
+8 3
+617
+6 7
+7sjsshfgnpnjskhccdclrxmnl
+7 7
+trzeightwo1krbkxd9nslndznine
+8 9
+ninelmbxldnb1qfqkhqkp
+9 1
+3pf8vlmgtfouronefx
+3 1
+five7seven6
+5 6
+zckdhnzrppb3kqsix
+3 6
+6fivebgf6fourktdsqdxfqd46
+6 6
+four7nine5two4dkkdhvcfsf
+4 4
+5vtqrhbn1lhxm7one
+5 1
+three13fbtqxvmninegp
+3 9
+fiveseven1czvlmlncthreerstssbjdoneightpm
+5 8
+2lpdnfz3vghpszmtxnineeighthkfour
+2 4
+455hdvfivervnine
+4 9
+three64
+3 4
+six6threefivethreedbvvftm
+6 3
+667sevenzjxmrmpxd8
+6 8
+dsix62lrvqkfthree
+6 3
+sixthreefour5cpgsjznfdbtk
+6 5
+two4five4one
+2 1
+1hxbnvq
+1 1
+sevenkrzfvkkrprxzcfgchscbstwo73
+7 3
+nzhtgzzq448pftthpsneight
+4 8
+3197
+3 7
+one59fjdqjd9
+1 9
+pvcphzxnvnhhngl5dsix6fourone
+5 1
+5eightfourfivetbhh54eighthkbvcfrpc
+5 8
+threehvdqjdl45fourrqhqxs
+3 4
+8twonine
+8 9
+8mmc6tmc99rkttglnnxk4
+8 4
+pxnxckqbdhhvhbheightfivefivesix6two
+8 2
+3four2pzx23vhmzhrfourthree
+3 3
+five1four97
+5 7
+9eightpzznbpqgj
+9 8
+rrrgfxlb7vltwobjtdrghc
+7 2
+sgnd8ptgdfourbbcqsix
+8 6
+4chfmgsxnsd96
+4 6
+zthree3
+3 3
+zvvstf6twofivelftpmzkttwo3
+6 3
+1nineoneightxqt
+1 8
+2kzhkfoneeighteightqn
+2 8
+287cfour
+2 4
+lhmgblplseventhreenine9vcpnpvzhjronenhczffqt
+7 9
+5xrjqdjtdqnvlnrkkr7
+5 7
+38dbdthfive
+3 5
+onethktvdnfqgfourlxpksevenseven22nine
+1 9
+mjmt18blbfiverjsxjsktkgz
+1 5
+8hlrjjbvsix92grtmthree4
+8 4
+7threetxjztxseven
+7 7
+five5gfgfdjbkrpseven4
+5 4
+8jdzlvrgtcf8eightzpgstwo
+8 2
+bfpqdpfoursevennvgqt8
+4 8
+8one99
+8 9
+kfvmblbtthjrrmktmjmeight4d3lnctfzsvgmjtmd
+8 3
+2eightgppxscjvdgrzjgc3
+2 3
+5twonineknzone
+5 1
+onefourhb4
+1 4
+eightrxchxccxb7qqqqxzt
+8 7
+threeone14pvfive
+3 5
+nineseven1sixknvkmfkk86
+9 6
+onesmvscnf9ninezgfrps
+1 9
+ffhseven2
+7 2
+1sixrjseven8
+1 8
+rvzthzdtwosix6kzzqssrgc9tl
+2 9
+threeeight5svcrlrqtkmfpgqzhhs6
+3 6
+eight3bt7dp
+8 7
+zqhncxh25eight1
+2 1
+five3vmmmntnjtjrkbvpvphj6nine
+5 9
+eight6fsdqseventxgjkbvrleightfive2pqx
+8 2
+nkfbsdgrrfvsmfxx78onetwo
+7 2
+bsix5eightwox
+6 2
+fph3jzfmt9fiventnpvnxhjxplchjnvlxqkdbzv
+3 9
+kfxbjzcfpfk8chkrtvlrnine6
+8 6
+m7kfjz52eight4tworkpcqt
+7 2
+vmlhvdpxds8two
+8 2
+fourfiveoneeight478
+4 8
+3eightonefive
+3 5
+ninel5
+9 5
+lfqllfjcqztwofjnfnfx5
+2 5
+5tvqksfour
+5 4
+twogdg5fourmhninecrdcrheight4
+2 4
+two5six2
+2 2
+419vrvjln7
+4 7
+pbpmljqjzxghp3tkdeight7
+3 7
+sevensixfiveqmvtfggbqjone72fn
+7 2
+7four93cdgcpxpl86
+7 6
+9oneeight6three
+9 3
+threesixsixhzhpfive8ninetwothree
+3 3
+xlzddrthree2rmtwo6fivedhxsrrdcvpvgscnt
+3 5
+qfncszfsdgzqctdtbpkseven1fourpcmz5
+7 5
+7seven9fivefive
+7 5
+82nine7ztqmftkssm34j
+8 4
+twofoursv6
+2 6
+five2five51qrsrqrtmdk7
+5 7
+four7fhhjxcjtbr
+4 7
+hnbdbkmjc72
+7 2
+sxclpbzmbd4fivezjjnncmqpv6ckxzb2
+4 2
+98six4pkhfzkzj7
+9 7
+611thqkzttfffivenine7seven7
+6 7
+8sevensmqzxxlgpxpjqstsgkmxdgplrplsjxjgsmjdzzgf
+8 7
+rggphsjncpxkfzfplcgrnfgmnd9
+9 9
+three9sgfhdn3rbvqds3threeseven
+3 7
+nine9sixtthree94rs
+9 4
+sixthreebvmxtcqng67one
+6 1
+6ntrhzzkl8djptbnsixthreefourhnk
+6 4
+3sixxsj5five
+3 5
+1cghzppdcfnine
+1 9
+jtmkrvlmhthree58eightqbhlgppghc1
+3 1
+fivefourlpk5jtvrk9eight7gfzksqrv
+5 7
+tjrphpkhfgsix7eightwocj
+6 2
+threethree85ghjsnhgrv2jv
+3 2
+six64
+6 4
+3ptfzxjrtfsix
+3 6
+1583xpczlkvtwo
+1 2
+twoglkpldjthree717
+2 7
+six26three
+6 3
+three5qc1gz
+3 1
+9tworgcbxfourrxgxzzbljcb5mxn
+9 5
+838
+8 8
+four6zjdfd22kxpfhhgonefour7
+4 7
+seven132
+7 2
+zmml5
+5 5
+twozzzgrhseven5
+2 5
+four8eight4fivefour
+4 4
+g76nine4oneseven6eightwol
+7 2
+9kzlggh1ninefoursevenninelb2
+9 2
+three27kfmbdtpxncgpskvrq2
+3 2
+onegsnxggjlvn1six
+1 6
+8fivevgtszhfl2zqsqpnmgdbkfour
+8 4
+4fourtwo
+4 2
+mrllxmbfpqvpfzhghv8twotwo
+8 2
+3hjxpgkxpc91t3
+3 3
+four24
+4 4
+six385hsxtfone
+6 1
+8three9twotnpjkcdbrfive8
+8 8
+nine94tpfcmnzsjk
+9 4
+sevensevennbch64six
+7 6
+onefour99gcgvcfvfnzjtjzngc
+1 9
+fivefivedqdt4
+5 4
+onefrnpc4onejgvtwo7six
+1 6
+4568
+4 8
+tfrmonerljgxsbghm87hmgzfvlcmgbsbqc43
+1 3
+4kbxt9pqchtltg6sixjkzncffrpsixtzdtbdg
+4 6
+29pbpph
+2 9
+2szjrkkqvsix
+2 6
+six2twotwo1cfqzhjrlkbone4two
+6 2
+mdxmcknnmmnfzsbvh4
+4 4
+rzjnjrqjkmzmr4seight1two6
+4 6
+onehpqvvlsnkhcqhczbllbcfl3six
+1 6
+nine655nine81
+9 1
+two76threefourtwo54
+2 4
+8nine91
+8 1
+4threebspdskrp3
+4 3
+pktwonesx4sevensixfournine7
+2 7
+td2one4seven
+2 7
+eightseveneightfivetwothmngvb9one
+8 1
+9pkdcbgfhrf8mjtjksvjlf2
+9 2
+374four9two2seven6
+3 6
+98eight2
+9 2
+brmzpfgjone3
+1 3
+six4mdbthreezdgrktcdc5
+6 5
+mfmvcqdjlvzmeight8
+8 8
+smklgfour2
+4 2
+j3nineeight
+3 8
+fh45peight9nine6
+4 6
+two972fvkfzsfivefbgkktg
+2 5
+three9kdzkeightqmxcslnvhthree
+3 3
+ninekgjkdtcsrqgrmdtshsevenseven3four
+9 4
+2nineninetwomlt
+2 2
+jckvcvtwo7
+2 7
+348
+3 8
+cjzzxsix1hfqxxgdvphppxzvmqsv1xxxsqckhpbsix
+6 6
+jcnlxlccrtpmqqmfour8dzrn8lrzq
+4 8
+7sevenzrcgtldkjbhjt
+7 7
+three55gtrnineztxsdcdcdb2
+3 2
+sjnvr5
+5 5
+gvpcd4one2four2foursix8
+4 8
+mxskkrvdjkvpnine6834hsxsn2
+9 2
+one5fivesix
+1 6
+bfhbgfdkdftjtnhvgbr2zvmcmrpjs
+2 2
+threeeightmbjc5six
+3 6
+8zcxflfkbtdtwotwo44six4cnrvvft
+8 4
+sevenzggv2mkjsl
+7 2
+sevenvx8one55zhkjcxbpdz
+7 5
+zbxbftwo79leightsix2lgcmlpbpjz
+2 2
+one6twoqrfoursixtwofive
+1 5
+111threethreetwonehf
+1 1
+72fninesseven
+7 7
+gsrshxjfhr54jmsgnnninecvqdjtsevenfour
+5 4
+m49z51
+4 1
+2one27two
+2 2
+four9rlhsbfour
+4 4
+eight8sevenoneightjtj
+8 8
+pgv57nineeightxnblzsixxgjttbnzrqscb
+5 6
+3sevennine35gfbqvq8seven
+3 7
+fivesix252one1nsix
+5 6
+3qzvttqnmjb4pshrrdzpm
+3 4
+nvmlzzxfksevenlvngntztwotwo9mhjrjrxnckchs
+7 9
+seventwomzk699
+7 9
+33svrghbnine8seven
+3 7
+six48fourtwoeightphl
+6 8
+7fivekcrsvzdvsix
+7 6
+8sixjtdrl446btjlmfzqlg
+8 6
+g6sixjlsspqkthree
+6 3
+z2
+2 2
+sevenonec6xhddnxjzrn
+7 6
+one1bczmjxrnineonevjkbnine
+1 9
+eightttltnkcllm8snhbqptsztzkdffkcdbsixcncvr7
+8 7
+mnprx46jdttjtxrkhrninefvvphzthreethree
+4 3
+3bjrvbmlpv6threefivehrkcv
+3 5
+8hjkrlmg
+8 8
+lfrzztvtwomkgrtzvseven7
+2 7
+fcx2two
+2 2
+27hhbgl3x
+2 3
+mtveightwo3tcseventwox
+8 2
+nine8four1five4
+9 4
+six56qqvvtwo
+6 2
+fivelhhcjhpfnsvtzmnxdlp3fivefour
+5 4
+fourtsbq3six2
+4 2
+71vcmtqgfpdkx2
+7 2
+fourfiveninetwo5
+4 5
+qsfhrhkm4nvxdxzcnkcknvxjg2two
+4 2
+915dftd69foureight
+9 8
+qrhjdprpcbq3eight552kb5
+3 5
+rsone7nckeight
+1 8
+3ninecmsvkmlk8b
+3 8
+fourfrdgbrdzsfvjg2fthpptfjgzjsnvsxcxgxgcgdcl
+4 2
+sevenkpshht4threemthmfbdp7
+7 7
+sltzgqcqlvdbccvcbkzmmpsl957
+9 7
+75t3
+7 3
+4sevenkfourpxfkgkdpjccxpxrgsbmsrnxngd
+4 4
+2oneeight4mpndtnnone4onesix
+2 6
+six35sixfourfive2
+6 2
+81twokrqg
+8 2
+3dqcrlnzsnmhmzzxnsjsskchxqzvtfrdnkqg
+3 3
+17zzrcpnmshreight
+1 8
+gcvvczmldgh8mnsnpmjvdrpznine
+8 9
+oneeightjhmf9
+1 9
+1hlfour3three9
+1 9
+skjc82gthree6
+8 6
+eight9bszxphftdsixsixonesix
+8 6
+five9xbfgzfh
+5 9
+6nineone
+6 1
+tgnqfiveeight8qnlj
+5 8
+28fxrpdmdjgdnine6rpjdxgd58
+2 8
+gsxfivefourhgznkdhrtkn7nkt59
+5 9
+6m2eightbzndjnfthree2fjkpsm
+6 2
+9nine7one7rgsh
+9 7
+xnrqcllskcrlxglbshvrseven3nvjlcngxnine
+7 9
+sevenpltgmq9csxz1four
+7 4
+7threevbhfgnshtn5nine
+7 9
+gdj9
+9 9
+five6two931txb8
+5 8
+fourtwoone2hcbzlggvfive
+4 5
+7xlpjkrvbtq8qlgrqonetwo4bpxtcgjxv
+7 4
+nnxhcrgplrtrskbjzdd8lfive2six12
+8 2
+bqjdtwo98z
+2 8
+6ninerfqlbxpx
+6 9
+8seven642six
+8 6
+eight54
+8 4
+5two9eighteight7hzkfdzg
+5 7
+twofourninekhcztkhfour23xllcdb
+2 3
+zmpdb7jffqt7nhnmdrqqvtwo2krltbfjjdd
+7 2
+sixfourlxxshzfccgtzkdhjeightfourninehmrhqzfqld7
+6 7
+mblx1ninekfjhfnjtt4nine
+1 9
+seven7mhmkpqk
+7 7
+4rvzsftqscltzzj551
+4 1
+8gkvgs5oneninethree3three
+8 3
+5ldfllvzkhkfive8
+5 8
+jjblh64five1gzvvgcbrhbvrqfhjqvkrqvff
+6 1
+fourpqnpgjnclq7nine
+4 9
+eight4761
+8 1
+nddmqzx2four
+2 4
+8nkgjkkhqztwoeight
+8 8
+hlqtbfrgsfbgnine5qdfzrsnmb77
+9 7
+nineggdbpmhbmdnrfvpv5threefour3
+9 3
+jm4
+4 4
+sixfkxfzvrkxv9seventwo8one
+6 1
+threesix2oneoneightc
+3 8
+7three3615qqdbzsxrdv2
+7 2
+74fourdvgcgdgvxqgm4eightqqtmvone
+7 1
+5h58dmvkxbhtninefoureight
+5 8
+8fiveoneseven7
+8 7
+eight145zxgnzczcdkzrffnbfmsztwo
+8 2
+268nine3
+2 3
+6eight3nine86six
+6 6
+4qhtjbcd9
+4 9
+mblblmkhseven3tgdxslcnine
+7 9
+fivefivelgghthree5vkkfhjkc
+5 5
+4four5oneseventwosixfivetwo
+4 2
+6ninenine8
+6 8
+7ldg64five9twoninenine
+7 9
+3zmzlnninesrfourfivetzxlkcsr8
+3 8
+sgdzmk3lgxjrktsmzkczft
+3 3
+64nqhjdjs
+6 4
+9sznchv2nineclrfdpxnf378xhkjbbplqdeightwos
+9 2
+3sskrbzrpfqbbqtjzgcqjhnine3six5
+3 5
+vq95nine7lfiveonethree
+9 3
+3eight3eightfive4
+3 4
+twoninethreel7sixfour9
+2 9
+bszxlfz2mtmv
+2 2
+1cvhpxjlgjd
+1 1
+sixsevenksj77one
+6 1
+qglgjsh3zrsqqh9onehrkjxfsxt3nine
+3 9
+sevenlllqqkk4bxcgjqqllmcml4b3
+7 3
+bppqgfdfpm7753
+7 3
+68frjqbqmmq2fourncksn9
+6 9
+bdz42pjmmnmhkvd
+4 2
+6threetone2
+6 2
+8bmmdxf1dbnggxgpvhninezxmlzhvzb
+8 9
+48168
+4 8
+gvgkcsvmoneqvlxgzjsixfourshxzls9three
+1 3
+1zrgnghhm
+1 1
+klkrldxbjone6eight6sbglhrhlbnbq9dbkl
+1 9
+9threefivetplxdklc2zrnptzrzp2
+9 2
+sndxcznj9ninexttpfzbjcmbslghm83rp
+9 3
+73one8one
+7 1
+3eight8eighttlmpmh9five7
+3 7
+7vqcddvrgbm5foursix
+7 6
+fivedhzbdsnzd1sv
+5 1
+82fgntsxnsix3xdzk
+8 3
+threesix3qblcvkp
+3 3
+lfptgxqs2six35
+2 5
+eight33jtzdbstcmstjxtbseven8
+8 8
+seven4five958three9
+7 9
+3sevenhpvklhxxvx
+3 7
+rzsb5eighttwoglqtmf4
+5 4
+seven8fgkp
+7 8
+3rjfvpfiveonesfgdbb5
+3 5
+vpkkcrpdthree9threeninesix
+3 6
+3onethreenine7
+3 7
+9sixtwoninetqllkjtmjnine4
+9 4
+2lqsevenx1vsgbmgone
+2 1
+eight2kqsixfzcxvxfourp
+8 4
+gchhhrbxqlfphdjjdfsix4rcpmj
+6 4
+4pfrxtgr21
+4 1
+7fvndztkj
+7 7
+rtwonenine77lsglrqcxhgxrllftvqfvfive44one
+2 1
+two374343nine
+2 9
+eightseven7fthree
+8 3
+6lrrphgpnrlvgfqqzxfdxttdbfdfgjpmtztc9
+6 9
+61threegscxrcstkclln9
+6 9
+xk2dhkgbtggeightthree
+2 3
+5vbbrqfnfp49eightqvn71qpskg
+5 1
+sevenhgd9qxfn8twoeightsevengcqtt
+7 7
+1four17five
+1 5
+5seven5vnsbqpkjzeight7five
+5 5
+62qgxndqlninetmftkhp9
+6 9
+two8threeeightdpzzhhvmr8
+2 8
+kxgmtlzb7gcltm9cxp
+7 9
+8454nine
+8 9
+mtqqxgkvfdthree9rpbvl5sfourthreesix
+3 6
+7onenine
+7 9
+4fourthree
+4 3
+8fvr
+8 8
+1fourfhljbffive
+1 5
+lqltrsvkjsthjkxph3vrfive3vxvlf
+3 3
+xxfoursevenzbthcsdnrvjlnqqhlpbbpj8
+4 8
+6gvch2fiveeightsixmtfps
+6 6
+two7rljfhhdlcseventhree9four84
+2 4
+5lpseven
+5 7
+cdmnine1
+9 1
+oneeight97mxnine79
+1 9
+3thzbhxbcbf
+3 3
+two41fivefiveseventwo4r
+2 4
+shlz9
+9 9
+xxpgkqf9joneoneseven6
+9 6
+lpqvvzdbx27
+2 7
+gh1five
+1 5
+thzrmh2lpncngjrqrkmthlndl2six3
+2 3
+vrrhfour55
+4 5
+665qzpzlhfvrbsgblcvgzbqqkxbdtzctwonerx
+6 1
+five44
+5 4
+kpvqnxnlfouronerp5417j
+4 7
+4vxppbsfive235gqchjfhjsdgq
+4 5
+sixnine2lk8npzdbgcxvrd
+6 8
+3six6eightseventwo71pff
+3 1
+zbr1srxljjseven5ckjfour
+1 4
+one71z3threenvmtcd
+1 3
+six9zdchbfsdtbs
+6 9
+2qhqnrcmrninedqfivejseven8
+2 8
+zrhctxclslhlj24jhhseveneight1
+2 1
+knkvthzrbtxbbnnpsfbq1ninefivesix
+1 6
+vhr28rlrtpjbnn7
+2 7
+xcsjqrptg7one
+7 1
+gzdjq2fourpqmzjs5sixtc
+2 6
+threedzbjqd3568
+3 8
+threesixgcjx3onefourdskrfhldjhm
+3 4
+sixphnfkdtfxnvphxh3
+6 3
+rxldfbssevenfivemxtdbnvgpq6xxmbkdkxkjmth
+7 6
+five7five3four2qkrfmt
+5 2
+4fivefour
+4 4
+fivenine35tzhpqfkq31
+5 1
+9two2fourtwo8nlgzgbbp8
+9 8
+1threeoneqglrlnmcblpfhgcfhggm
+1 1
+7onerknmhpmonejzfqjng
+7 1
+nine81twoshgxqt
+9 2
+28dqfptxseven37jtqrklrqc
+2 7
+41two3
+4 3
+7gp
+7 7
+sixdzjfsv2sixeighteight
+6 8
+9three6
+9 6
+3fiveseven83tvtxf
+3 3
+ndtwone562kzfhdrhgcjv4two
+2 2
+jzvtjvnineeight42keightclbtddmdffsdttc
+9 8
+eight41mggmrzlkhsevenfoursix4two
+8 2
+rkllqvfjz13sixthreetdztlhlcldoneightj
+1 8
+7three4fbccblfvninelhvlthgh
+7 9
+btwone96two1onexconeonefour
+2 4
+jcvxrvkdsb6five
+6 5
+578947five
+5 5
+1819p
+1 9
+lgvxmnjkgmlkhkzrone6gnbgkxrlpspj2six
+1 6
+ntzsdxn8
+8 8
+mplcrhcz8
+8 8
+czggpkxcfthreefourjpcxnine4pvfqxcvh38
+3 8
+9dsfhtnrjv16
+9 6
+2ceighteight4ptzneight
+2 8
+2two8jvsgrtrht7lhxkdztqdhvcsdm
+2 7
+619six
+6 6
+cqmqkhpxjtwofm9one1one48
+2 8
+2nqbksgxxfoureightfiveeightbbvg
+2 8
+five5nineskphfdgxbp67
+5 7
+gsevenqgcsk9ninehlccsxn
+7 9
+pnqcdjknth94three4sevenninefivegl
+9 5
+eight9mnsb6
+8 6
+fzsfcbbvvqnksj85fbfour2cn
+8 2
+1kjzphbpp3spnbzhzeighthdnrdq
+1 8
+4nsglzjbk1
+4 1
+threetwoninethree2ninehm
+3 9
+35oneljcsixlmdxpxk1
+3 1
+jsix2
+6 2
+tgkfk8ninestnk2eightoneeightwotcs
+8 2
+chhflbq1xznbmj4oneightkc
+1 8
+3eighteightfivenine
+3 9
+six592bzj
+6 2
+xnqnxkpseventhreettv8jkds
+7 8
+honeighttpqxdbhsevengvzfourd4s5
+1 5
+sixeight8
+6 8
+pcflsgrvslxgmtqm6oneeight69zhlpddq
+6 9
+nqgeightthreelzcppk2vzdjrjqqx41
+8 1
+dqdcmtzbqeightfoureightthree7four3
+8 3
+ninesixhxrncgtwofivetwo5eightrvq
+9 8
+kzxgsfive644lthreefive
+5 5
+nine2one14four7
+9 7
+59gjc8fivetvjcjcq
+5 5
+lczn92c
+9 2
+3seven9tprznnsmznineqbpchxlnbqkssgqx1
+3 1
+3m22nine7
+3 7
+3mhzbqtscqrkjzjqtklxdn1
+3 1
+61pnjkfournine5
+6 5
+41one
+4 1
+99twonzsjsqk7fivedjlcgzjrfive
+9 5
+twoninexngksevenfive7xxrxpvq
+2 7
+1mfnggsgvqmplg5mrqmzsclpmeight
+1 8
+2ddgfivehxddfxbdfsseveneight
+2 8
+4nine579three13
+4 3
+fiveonethree44one
+5 1
+11four
+1 4
+cgqrbzdl6mnmvh6
+6 6
+qmzeightwosevenflbh72nine2
+8 2
+six59one9two1cvzslmdch4
+6 4
+fivesixtwo8
+5 8
+sixxvczqbbvctgmsjnffmfourfbr56
+6 6
+6seven5hndfourfcnone5
+6 5
+qdnjmcxtfgpk6eight
+6 8
+three24two7threetwoprztmh
+3 2
+foursevencfzcdzksevengh6nsnine3
+4 3
+sixseven4lmqshqzmk
+6 4
+xhrjx9eight
+9 8
+twodmcxbsn924
+2 4
+2zmcjlhqj4sevensjlnjjx4
+2 4
+pctwolxqvjsjdlfx8eighteightsevenhq
+2 7
+sgzzd5five87threershbhmqlbm9eightwoq
+5 2
+tlzmzt6jg7fiveeightgc
+6 8
+svlthlbrfive2fourdbfp9trvbjthvvthreetwo
+5 2
+nlqnmffxlsblnncqgcgsnkt7fjhfksvfxeight
+7 8
+hljgks3hfour5lzzpzpjpgdhzflrnqpfzjsfc
+3 5
+9eightfive
+9 5
+eightsb215qkphjjdrlg3
+8 3
+four7three
+4 3
+nine2eightrqh21
+9 1
+tnine8txbm121three
+9 3
+two1h495skpvbzsixnine
+2 9
+73five61pzlscqn2nine
+7 9
+threeeight3ffnjgk2mprkn9ninebqlvkl
+3 9
+58four
+5 4
+4pzb35twotldtcq363
+4 3
+jnzdhlzx4fvsjsffsxn45seventhree2
+4 2
+nsfrqntjhpq4qstwotwoonehs
+4 1
+fiveonethree5rnmlz
+5 5
+seven18jjcdcg
+7 8
+threesevenqqbrkbpzeightninethreefive1three
+3 3
+eight98
+8 8
+eightonetzggcjvpml2twoxlznrn
+8 2
+4dmndcrsc
+4 4
+9oneseventb
+9 7
+5pkf8zzmvfive6
+5 6
+rdlnxcx3nineqjpldqtwodkctfnn
+3 2
+8mpmgzgshszbcnrpzcszltd
+8 8
+2jvkc3
+2 3
+rc6clvgbz6bbtlzeight5
+6 5
+frnhbsgzpfeightqkt2ninethreetcnklsctc
+8 3
+threefivevgzhh2
+3 2
+tjoneightone9three9dkbnh
+1 9
+hv7hpx
+7 7
+7onetwozrl7fbxhqgrbtoneightpzv
+7 8
+3mtdnphsvtrrfeight9sevenfivethreedjcdxg
+3 3
+pqjcfjsix4tsxcthzbqzhklqncvb
+6 4
+fgrzvnnk3cfrxp6tsb1
+3 1
+czfdsjffqqrcgffx7seven
+7 7
+56jdtwo
+5 2
+sixxvjjmpcttwo7ninechbzv
+6 9
+8qckktnslsvrmpctknine91
+8 1
+4two9fivefshxvdfbdr
+4 5
+7sixtwo4rjspztpx
+7 4
+8onethreestjxv
+8 3
+3lvhvlnthreeonetwo323
+3 3
+hxjcbtrtcdgvg22ztn6xxnsdbffour
+2 4
+twolzone34crrcpcdb4
+2 4
+fourjhghcseven9gtmxrpbpxthreehkpfour5
+4 5
+qdrxfdlqtf4342threemlpb4d
+4 4
+nine6nfnrgd52jnqfourbzkgbxlvlmr
+9 4
+sevensixonem5two4
+7 4
+64one1nmxbmsq
+6 1
+fiveftmrkpmjthreekvsfqjchvf9two
+5 2
+ninepffbfjhjtg4grnzztqnfiveseven
+9 7
+1gkvsgsrrxvdfdtsrlgfthreedsrprjft3
+1 3
+foursixsevenninepxllctr4khsfxfvnine
+4 9
+onebfpbqmpmm6
+1 6
+cgkblkxtr2thqsixsixthree
+2 3
+qqfkvsntgf687
+6 7
+fournine2twotlvqhlrtbmckqlljhssevenghhttkvf2
+4 2
+ninenrvhhleightkxbzcmx2sevenvzsncp
+9 7
+eight766sixoneseven
+8 7
+8eight61gsxklbp
+8 1
+2ptzkzxsnsix9one
+2 1
+six9vfourseven5brmclpeight
+6 8
+821
+8 1
+one6hcsxp5njsthreesevenfive
+1 5
+pcf2
+2 2
+eightgxsjc456
+8 6
+threeseven57htjtqxbbdh
+3 7
+6twomsbq
+6 2
+gzknkt1twopccfh
+1 2
+7vpzmnt
+7 7
+8fiveqfzgbnxgnh
+8 5
+onepvtddfzn2three
+1 3
+5ninesix85
+5 5
+onejkgppztbmrbfqqrjzp24one
+1 1
+k3six817dvvjgqlnkd
+3 7
+zzvkseven9sixqxr4
+7 4
+lpgdnglg3threemtltwo
+3 2
+three9qfour8rxlzjllnskeight2t
+3 2
+sfxgmjzqs2cbqtwo5
+2 5
+one36
+1 6
+2tdknkgfhpj1nine9rtsjrjdlsix
+2 6
+59jvsoneninethree
+5 3
+fzjvgpsqrsninenlpxzbone6
+9 6
+fourkllsixbfive6fourone4
+4 4
+seven52zchsttccn3three7
+7 7
+6ncvnflrdqbfourx64nine
+6 9
+2vrhdchccppdseven4qkdghrjrxbdlfplc6
+2 6
+5cbdfvxxtwoone38dmjngzqlf
+5 8
+fsqgt6jqdqdj7cfdzrfd
+6 7
+9zqfiveznnmghtrtwozqbeight
+9 8
+twoninexmxnpbvtkn1tjzdsxjvbd
+2 1
+6fournine
+6 9
+15twotwo35kbbpcxbsmb9five
+1 5
+1two29dppbcqkxgq
+1 9
+six7sixpqqmdjlcgzrrnvkqfqmllqlbmfnvlnzjcs8
+6 8
+jhtgltv2qzhnkm2three8nine
+2 9
+mrttwonetjrt2eightoneqqgvllgpqqbpd
+2 1
+hhtnb72
+7 2
+sdzhtjmnkdtpfsfnsnk7rtwo
+7 2
+3sixsrqsjsts643five
+3 5
+338twomnqtwo4cl2
+3 2
+hgggrn2kvgkvrhngxx2xzmqsdpzbsxfqhg
+2 2
+hctwonefivenine4tnsixsfxlvppm17fvq
+2 7
+six3blppkhpjtr
+6 3
+trrxmdnhzsix47
+6 7
+5vsrhlvqpttwojczmeight
+5 8
+rzgrzbkk87nine
+8 9
+trgfsq1ninefour
+1 4
+lxbvlbpjz4eightsix
+4 6
+6zmmvchcgjqsrthkgc92
+6 2
+9thfthreemxlbt
+9 3
+eightpkhgpcnc8eightfive1hdtcjjdcsevennpz
+8 7
+fivepprkhhtg9cdfqhsqfivejsrxzvknndnvq
+5 5
+qfvjvgeight2vbpjnftcttwonegn
+8 1
+twolnln7pnlsxthfjpfivenine
+2 9
+hlseightwoone6qvcrsrttg1three7six
+2 6
+8xcsllfrlx6one7eight
+8 8
+fiveshnmbngmrnineqjjlvdrfnsmpdnine4c
+5 4
+three2rcfcrgmrvsjzcflqkb6487four
+3 4
+threelnbxcrhglnine534
+3 4
+5flztcjjeight7sevenfb
+5 7
+qgbplxgtdkrqqsvjntwothreens48eight
+2 8
+five34rbbxpnkftntrt
+5 4
+nmjtwonek4
+2 4
+cdnxnppnvthreexcsmbmcslh8ninefive1
+3 1
+6lttndjpcchdpgkfmmf
+6 6
+oneeight88
+1 8
+three4xctmtvvcp3sstxzfmgnine
+3 9
+6fivefivevnpnpknljlfp6lone3
+6 3
+one486twojknbmsqthree8
+1 8
+fkxfourfourlpslcbbtk29
+4 9
+6seveneight19four
+6 4
+fvcseven8hzlrgpmgfj136
+7 6
+sixfour9tn1tfmzkdjxxj
+6 1
+ffvmfqmsnineeight5
+9 5
+ninestmzctrthreesixqdbbvtkjfxpjpgzvpthree7zsfmsvsgxn
+9 7
+rz2eight6655
+2 5
+vhzqvbxr6eightninetwoeight66
+6 6
+2fiveeight7seven2
+2 2
+5six6vkvdbjnhbdht5rqhkfour
+5 4
+eightrntwocdchshssevenone2dxhmccpn
+8 2
+three4gsgleightxvgjpvqshlfzntwo43
+3 3
+9four5onebqlcmrrkvnine45
+9 5
+mtkkbxbfour5onemnxcglq
+4 1
+one18482sevenpkgxmfour
+1 4
+two3threexggpjbncmkvmd1
+2 1
+oneseven9
+1 9
+679b
+6 9
+7vc9threenine3
+7 3
+one35x
+1 5
+4eightthree9
+4 9
+1hclxskfgjfhvjtgqsztp
+1 1
+eight38d84fm
+8 4
+fiveone6five1five
+5 5
+qjpptvfsrs614fourssdrxtpqfz7
+6 7
+9qnrkp
+9 9
+six4one1zxhllkcd
+6 1
+six1fourtwormz7vxfbhmg
+6 7
+one3jxcjzz9
+1 9
+vzmtgdhpjneight83fivepcd
+8 5
+onexqhvqpvmncljmssix4twoseven
+1 7
+threeninenine2hg
+3 2
+bvjvgtdhjstsevengtbnqf4seven8two
+7 2
+twooneone5lrjpptxzd
+2 5
+hzlb1
+1 1
+nhrbfltwosix22rdjthctone
+2 1
+seven7eightthreepgj
+7 3
+fourfive45
+4 5
+nztwohnx3nine
+2 9
+fourhfxgmkcgbppdjkqpx2ninezdkbncsevengbdxb
+4 7
+sbzdcpxnine3nine
+9 9
+8grdrone78
+8 8
+1eightjldlllrxl2
+1 2
+588onethreesixlpdkxfc
+5 6
+vvvjrnzbfxgzxqlxx6vcqkkftxkdttnhpzrvtwo
+6 2
+3llpjrhrone5ninemdqjnpllprkphk
+3 9
+44pmxlrhsdsvsfxtg6
+4 6
+nine841jvpl
+9 1
+eightbpsqrkzhqbhjlrxmzsixvvmgtrseventwo7oneightjbx
+8 8
+znhjtgjk1three8
+1 8
+5xcsvvvzrqcxkqj346oneprztsfpdld6
+5 6
+67six1four1kqj
+6 1
+qvqlmqtzcj5
+5 5
+ninejrrhddqfivenine7psghccdhvfive
+9 5
+pznvtxdklpvqbsevenfiveninehzjfvrdxz8
+7 8
+eight46xpfdcqbmprchftkpfive
+8 5
+bkdvhbhlmn1
+1 1
+99sixv
+9 6
+gdoneight26pzghbjfeightttfbvhltwo8
+1 8
+three5nhd
+3 5
+three5nine
+3 9
+four9csdvvfdbkseven26peight
+4 8
+sevennszdbkkfdndjtzzpjmtqbxlkv43vxlnnrn
+7 3
+4fourpxzkmfksix39
+4 9
+9hz8crczlbbhkrsjblzd1q9jsbf
+9 9
+443twofour88one
+4 1
+2tpmlxltgsix
+2 6
+83835six
+8 6
+8twojvsgjtqvxgsevennjdvdbqccmgcldp
+8 7
+fivebpknnpxnjmpxntbhkjsp4fivefour
+5 4
+hvxnseven6two64five2six
+7 6
+5twoonefive
+5 5
+jzkd6hvcmfqsjztsixfivexlfrvn
+6 5
+xfbcskone12jvvbflfn
+1 2
+ninellrbqhshsxeight7two
+9 2
+4nine79jdkfkgvcr1
+4 1
+eight8twoltnpxckbqxnfbxtthree49
+8 9
+ctkfveight8
+8 8
+nine671seventwotwonejkf
+9 1
+5threesix
+5 6
+4sixsixzfmtzlspfcseven
+4 7
+4pqnrmqlscq1fkzxngndmgseven2
+4 2
+27four7znrkvxhvt6
+2 6
+lqkljjh79six7seven
+7 7
+2tlb84sixfour
+2 4
+onesevenseven5htsdxvfctkdgvqtwoeight3
+1 3
+66836qblqgdhnine
+6 9
+75ntphbdbpgktwo
+7 2
+jheightwovtone8fourtcsbhhntkq3nine1nine
+8 9
+5gcnnbjcgqn7
+5 7
+1nnxkfdmxhsqqttsfsgtwo5three
+1 3
+7sixtwoeight
+7 8
+9lsjcmcvqlconezxvrrptxlxleightlvghvxjgfive
+9 5
+one6xxf1bjjnkfeightwozv
+1 2
+4rqxnflktwo
+4 2
+5three1
+5 1
+vxqmbgjnr6one
+6 1
+eightfour538
+8 8
+gvjt1onetsevenonesixfive8
+1 8
+fourgtwopbjbcvgtwo3one
+4 1
+68four4htvj8bk
+6 8
+nmftgklbpj9onevbzzeightncszqgpl
+9 8
+154fnthzxccjxsztjzpvzcn4
+1 4
+three6fivefoursixgtzfzbkhmnplfm
+3 6
+63eightsixgdsdqqxzzsbnkt782
+6 2
+twovbntmfffivengfbkhzgm4
+2 4
+23sd6nnspq
+2 6
+nineeighttworhtvxdtxp8twoneh
+9 1
+four3threeonehbfhttgn39sqpctngqmzkhttn
+4 9
+rphtbkncs4nznsix
+4 6
+6three2sixsix9eightfour
+6 4
+Result 1:
+Result 2: 54827
+===================
