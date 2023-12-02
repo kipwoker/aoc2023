@@ -2,9 +2,9 @@
 
 use crate::core::Solution;
 
-pub struct Day01 {}
+pub struct Day00 {}
 
-impl Solution for Day01 {
+impl Solution for Day00 {
     fn get_day(&self) -> &'static str {
         todo!()
     }
