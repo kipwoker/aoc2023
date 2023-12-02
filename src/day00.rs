@@ -9,7 +9,10 @@ impl Solution for Day01 {
         todo!()
     }
 
-    fn solve(&self, input: String) -> String {
+    fn solve1(&self, input: String) -> String {
+        todo!()
+    }
+    fn solve2(&self, input: String) -> String {
         todo!()
     }
 }

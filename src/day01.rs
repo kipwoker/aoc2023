@@ -10,7 +10,11 @@ impl Solution for Day01 {
     fn get_day(&self) -> &'static str {
         "01"
     }
-    fn solve(&self, input: String) -> String {
+    fn solve1(&self, _input: String) -> String {
+        String::new()
+    }
+
+    fn solve2(&self, input: String) -> String {
         let lines = input.split("\n");
 
         let map = HashMap::from([
