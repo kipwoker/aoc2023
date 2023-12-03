@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use crate::{
     core::Solution,
-    core::Cell
+    core::Cell1
 };
 
 pub struct Day01 {}
@@ -36,8 +36,8 @@ impl Solution for Day01 {
 
         let mut sum = 0;
         for line in lines {
-            let mut right = Cell { index: 0, value: -1 };
-            let mut left = Cell { index: line.len(), value: -1 };
+            let mut right = Cell1 { index: 0, value: -1 };
+            let mut left = Cell1 { index: line.len(), value: -1 };
 
             for entry in map.iter() {
                 let (key, value) = entry;
@@ -67,17 +67,17 @@ fn check<F1, F2>(
     line: &str,
     pattern: &&str,
     new_value: &i32,
-    cell: &Cell,
+    cell: &Cell1,
     search: F1,
     comparer: F2
-) -> Option<Cell>
+) -> Option<Cell1>
     where
         F1: Fn(&str, &str) -> Option<usize>,
         F2: Fn(usize, usize) -> bool
 {
     if let Some(index) = search(line, pattern) {
         if comparer(cell.index, index) {
-            return Some(Cell { index, value: *new_value });
+            return Some(Cell1 { index, value: *new_value });
         }
     }
     None
