@@ -89,6 +89,7 @@ fn solve2(games: Vec<Game>) -> String {
     let sum: i64 = games.iter().map(|game| {
         let folded = game.rounds.iter().fold(HashMap::new(), |mut acc, round| {
             for (key, &value) in round.iter() {
+                let y = acc.entry(key).or_insert(0);
                 *acc.entry(key).or_insert(0) = max(value, *acc.get(key).unwrap_or(&0));
             }
             acc
