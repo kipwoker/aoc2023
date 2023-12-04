@@ -63,3 +63,12 @@ pub(crate) fn find<T, F1>(matrix: &Vec<Vec<T>>, matcher: F1) -> Vec<Cell2<usize,
 
     result
 }
+
+pub(crate) fn parse_int(input: &str) -> i32 {
+    if let Ok(output) = i32::from_str_radix(input, 10) {
+        output
+    } else {
+        println!("Cannot parse {input}");
+        -1000000
+    }
+}
