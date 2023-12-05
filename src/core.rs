@@ -1,3 +1,5 @@
+use std::cmp::Ordering::Greater;
+
 pub trait Solution {
     fn get_day(&self) -> &'static str;
     fn solve1(&self, input: String) -> String;
@@ -79,5 +81,38 @@ pub(crate) fn parse_i64(input: &str) -> i64 {
     } else {
         println!("Cannot parse {input}");
         -1000000
+    }
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, Hash, Debug)]
+pub(crate) struct Interval<T> {
+    pub(crate) left: T,
+    pub(crate) right: T
+}
+
+impl<T: PartialOrd + Copy> Interval<T> {
+    pub fn merge(intervals: &Vec<Interval<T>>) -> Vec<Interval<T>> {
+        if intervals.is_empty() {
+            return vec![];
+        }
+
+        let mut intervals = intervals.clone();
+        intervals.sort_by(|a, b| a.left.partial_cmp(&b.left).unwrap());
+
+        let mut merged_intervals = vec![intervals[0]];
+
+        for i in 1..intervals.len() {
+            let current_interval = intervals[i];
+            let last_merged = merged_intervals.last_mut().unwrap();
+
+            if current_interval.left <= last_merged.right {
+                let result= last_merged.right.partial_cmp(&current_interval.right).unwrap();
+                last_merged.right = if result == Greater { last_merged.right } else { current_interval.right };
+            } else {
+                merged_intervals.push(current_interval);
+            }
+        }
+
+        merged_intervals
     }
 }
