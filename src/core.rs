@@ -72,3 +72,12 @@ pub(crate) fn parse_int(input: &str) -> i32 {
         -1000000
     }
 }
+
+pub(crate) fn parse_i64(input: &str) -> i64 {
+    if let Ok(output) = i64::from_str_radix(input, 10) {
+        output
+    } else {
+        println!("Cannot parse {input}");
+        -1000000
+    }
+}

@@ -1,5 +1,4 @@
 /evcxr_jupyter.exe
 .idea
 .ipynb_checkpoints
-*.txt
 target/
