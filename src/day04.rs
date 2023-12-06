@@ -1,7 +1,7 @@
 #![allow(unused_variables)]
 
 use std::collections::HashSet;
-use crate::core::{parse_int, Solution};
+use crate::core::{parse_i32, Solution};
 
 pub struct Day04 {}
 
@@ -60,11 +60,11 @@ fn parse(input: String) -> Vec<Card> {
         let parts: Vec<&str> = body.split("|").collect();
         let wins: HashSet<i32> = parts[0]
             .split_whitespace()
-            .map(|x| {parse_int(x)})
+            .map(|x| { parse_i32(x)})
             .collect();
         let nums: Vec<i32> = parts[1]
             .split_whitespace()
-            .map(|x| {parse_int(x)})
+            .map(|x| { parse_i32(x)})
             .collect();
 
         Card {
