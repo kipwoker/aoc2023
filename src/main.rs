@@ -6,13 +6,14 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 
 use std::{env, fs};
 use crate::core::Solution;
-use crate::day06::Day06;
+use crate::day07::Day07;
 
 fn main() {
-    let solution = Day06 {};
+    let solution = Day07 {};
     let day = solution.get_day();
 
     let binding = env::current_dir().expect("Current directory not found");

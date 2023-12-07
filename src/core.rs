@@ -1,4 +1,5 @@
 use std::cmp::Ordering::Greater;
+use std::collections::HashMap;
 
 pub trait Solution {
     fn get_day(&self) -> &'static str;
@@ -115,4 +116,17 @@ impl<T: PartialOrd + Copy> Interval<T> {
 
         merged_intervals
     }
+}
+
+pub(crate) fn group_by<T, F, K>(vec: Vec<T>, key: F) -> HashMap<K, Vec<T>>
+    where
+        F: Fn(&T) -> K,
+        K: Eq + std::hash::Hash,
+{
+    let mut map: HashMap<K, Vec<T>> = HashMap::new();
+    for item in vec {
+        let k = key(&item);
+        map.entry(k).or_insert_with(Vec::new).push(item);
+    }
+    map
 }
