@@ -1,7 +1,7 @@
 use std::cmp::{max, Ordering};
 use std::cmp::Ordering::{Equal, Greater, Less};
 use std::collections::{HashSet, VecDeque};
-use crate::core::{group_by, parse_i32, Solution};
+use crate::core::{Grouping, parse_i32, Solution};
 
 pub struct Day07 {}
 
@@ -33,7 +33,7 @@ impl Solution for Day07 {
 fn calculate_result(input: String, with_joker: bool) -> i64 {
     let mut bids = parse(input.as_str(), with_joker);
     bids.sort_by(|a, b| { compare(a, b, with_joker) });
-    println!("{bids:?}");
+    //println!("{bids:?}");
 
     let mut result: i64 = 0;
     for (index, bid) in bids.iter().enumerate() {
@@ -70,7 +70,8 @@ fn compare(a: &Bid, b: &Bid, with_joker: bool) -> Ordering {
 }
 
 fn calculate_state(hand: &Vec<i32>) -> i32 {
-    let group = group_by(hand.clone(), |x| { x.clone() });
+    let clone = hand.clone();
+    let group = clone.group_by(|x| { *x });
     let set: HashSet<usize> = group.values().map(|v| v.len()).collect();
 
     //Five of a kind
