@@ -138,3 +138,45 @@ impl<T> Grouping<T> for Vec<T> where T: Clone {
         map
     }
 }
+
+pub(crate) fn gcd(mut a: i64, mut b: i64) -> i64 {
+    while b != 0 {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    a
+}
+
+pub(crate) fn gcd_of_vector(numbers: &[i64]) -> Option<i64> {
+    if numbers.is_empty() {
+        None
+    } else {
+        let mut result = numbers[0];
+        for &num in numbers.iter().skip(1) {
+            result = gcd(result, num);
+        }
+        Some(result)
+    }
+}
+
+pub(crate) fn lcm(a: i64, b: i64) -> i64 {
+    let gcd_val = gcd(a, b);
+    if gcd_val != 0 {
+        (a * b) / gcd_val
+    } else {
+        0
+    }
+}
+
+pub(crate) fn lcm_of_vector(numbers: &[i64]) -> Option<i64> {
+    if numbers.is_empty() {
+        None
+    } else {
+        let mut result = numbers[0];
+        for &num in numbers.iter().skip(1) {
+            result = lcm(result, num);
+        }
+        Some(result)
+    }
+}
