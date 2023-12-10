@@ -28,7 +28,7 @@ pub(crate) struct Point<T> {
     pub(crate) y: T,
 }
 
-pub(crate) fn parse_to_char_matrix(input: String) -> Vec<Vec<char>> {
+pub(crate) fn parse_to_char_matrix(input: &str) -> Vec<Vec<char>> {
     input.split("\n").map(|line: &str| {
         line.chars().collect()
     }).collect()

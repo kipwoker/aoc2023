@@ -9,7 +9,7 @@ impl Solution for Day03 {
     }
 
     fn solve1(&self, input: String) -> String {
-        let matrix = parse_to_char_matrix(input);
+        let matrix = parse_to_char_matrix(input.as_str());
         let numbers = find(&matrix, |_index, value| value.is_digit(10));
         let adjacent_numbers = filter_adjacent_numbers(&matrix, &numbers);
         let result: i64 = adjacent_numbers.iter().map(|x| *x as i64).sum();
@@ -17,7 +17,7 @@ impl Solution for Day03 {
         result.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        let matrix = parse_to_char_matrix(input);
+        let matrix = parse_to_char_matrix(input.as_str());
         let numbers = find(&matrix, |_index, value| value.is_digit(10));
         let gear_groups = collect_gear_groups(&matrix, &numbers);
         //println!("Gear groups: {gear_groups:?}");

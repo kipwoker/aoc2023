@@ -9,13 +9,14 @@ mod day06;
 mod day07;
 mod day08;
 mod day09;
+mod day10;
 
 use std::{env, fs};
 use crate::core::Solution;
-use crate::day09::Day09;
+use crate::day10::Day10;
 
 fn main() {
-    let solution = Day09 {};
+    let solution = Day10 {};
     let day = solution.get_day();
 
     let binding = env::current_dir().expect("Current directory not found");
@@ -32,8 +33,8 @@ fn main() {
         let p = path.clone();
         println!("Use input: {p}");
         let input_content = fs::read_to_string(path.clone()).expect("File not found");
-        let output1 = solution.solve1(input_content.clone());
-        println!("Result 1: {output1}");
+        // let output1 = solution.solve1(input_content.clone());
+        // println!("Result 1: {output1}");
         let output2 = solution.solve2(input_content.clone());
         println!("Result 2: {output2}");
         println!("===================");
