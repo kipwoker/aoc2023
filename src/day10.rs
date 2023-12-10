@@ -44,7 +44,6 @@ impl Solution for Day10 {
 
     fn solve1(&self, input: String) -> String {
         let (g, start_point) = parse(input.as_str());
-        println!("{g:?}");
         let result = find_far_point_length(start_point, &g).unwrap();
         let start_point_directions = result.start_point;
 
@@ -52,7 +51,6 @@ impl Solution for Day10 {
     }
     fn solve2(&self, input: String) -> String {
         let (mut g, start_point) = parse(input.as_str());
-        //println!("{g:?}");
         let result = find_far_point_length(start_point, &g).unwrap();
 
         g[start_point.0][start_point.1] = result.start_point.clone();
