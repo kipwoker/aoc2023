@@ -1,7 +1,8 @@
 #![allow(dead_code)]
-
+use serde::{Deserialize, Serialize};
 use std::cmp::Ordering::Greater;
 use std::collections::HashMap;
+use std::fs;
 use std::hash::Hash;
 
 pub trait Solution {
@@ -180,5 +181,39 @@ pub(crate) fn lcm_of_vector(numbers: &[i64]) -> Option<i64> {
             result = lcm(result, num);
         }
         Some(result)
+    }
+}
+
+#[derive(Serialize, Deserialize)]
+pub(crate) struct Cell {
+    pub(crate) color: String,
+    pub(crate) content: String
+}
+
+#[derive(Serialize, Deserialize)]
+pub(crate) enum Event {
+    SetMatrix(Vec<Vec<Cell>>),
+    ChangeColor(usize, usize, String)
+}
+
+#[derive(Serialize, Deserialize)]
+pub(crate) struct EventLog {
+    events: Vec<Event>
+}
+
+impl EventLog {
+    pub(crate) fn new() -> EventLog {
+        EventLog {
+            events: Vec::new()
+        }
+    }
+
+    pub(crate) fn dump_to_file(&self, path: &str) {
+        let val = serde_json::to_string(&self.events).unwrap();
+        fs::write(path, val).unwrap();
+    }
+
+    pub(crate) fn append(&mut self, event: Event) {
+        self.events.push(event)
     }
 }

@@ -2,9 +2,10 @@
 
 use std::collections::{HashMap, HashSet, VecDeque};
 use Direction::Up;
-use crate::core::{parse_to_char_matrix, Solution};
+use crate::core::{Cell, EventLog, parse_to_char_matrix, Solution};
 use crate::day10::Direction::{Down, Left, Right};
 use colored::Colorize;
+use crate::core::Event::{ChangeColor, SetMatrix};
 
 pub struct Day10 {}
 
@@ -29,7 +30,10 @@ struct Step {
 struct Result {
     path_points: HashSet<(usize, usize)>,
     length: usize,
-    start_point: HashSet<Direction>
+    start_point: HashSet<Direction>,
+    last_point: (usize, usize),
+    path1: Vec<(usize, usize)>,
+    path2: Vec<(usize, usize)>
 }
 
 struct VisitState {
@@ -43,14 +47,16 @@ impl Solution for Day10 {
     }
 
     fn solve1(&self, input: String) -> String {
-        let (g, start_point) = parse(input.as_str());
+        let matrix = parse_to_char_matrix(input.as_str());
+        let (g, start_point) = parse(&matrix);
         let result = find_far_point_length(start_point, &g).unwrap();
         let start_point_directions = result.start_point;
 
         result.length.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        let (mut g, start_point) = parse(input.as_str());
+        let matrix = parse_to_char_matrix(input.as_str());
+        let (mut g, start_point) = parse(&matrix);
         let result = find_far_point_length(start_point, &g).unwrap();
 
         g[start_point.0][start_point.1] = result.start_point.clone();
@@ -58,14 +64,46 @@ impl Solution for Day10 {
         let inner = find_inner(&g, &result);
         let count = inner.len();
 
-        print_path(input.as_str(), &result.path_points, &inner);
+        write_event_log(&matrix, &start_point, &result, &inner);
 
         count.to_string()
     }
 }
 
-fn print_path(input: &str, points: &HashSet<(usize, usize)>, inner: &HashSet<(usize, usize)>) {
-    let matrix = parse_to_char_matrix(input);
+fn write_event_log(matrix: &Vec<Vec<char>>, start_point: &(usize, usize), result: &Result, inner: &HashSet<(usize, usize)>) {
+    let mut event_log = EventLog::new();
+    let view = matrix
+        .iter()
+        .map(|row| row.iter().map(|c|
+            Cell { color: "#e1e1f9".to_string(), content: c.to_string()}
+        ).collect())
+        .collect();
+    event_log.append(SetMatrix(view));
+
+    event_log.append(ChangeColor(start_point.0, start_point.1, "#fff813".to_string()));
+    for i in 0..result.length {
+        let path = result.path1[i];
+        if start_point.0 != path.0 || start_point.1 != path.1 {
+            let c = &matrix[path.0][path.1];
+            event_log.append(ChangeColor(path.0, path.1, "#ff5c98".to_string()));
+        }
+
+        let path = result.path2[i];
+        if start_point.0 != path.0 || start_point.1 != path.1 {
+            let c = &matrix[path.0][path.1];
+            event_log.append(ChangeColor(path.0, path.1, "#ec4cff".to_string()));
+        }
+    }
+
+    event_log.append(ChangeColor(result.last_point.0, result.last_point.1, "#fff813".to_string()));
+
+    for (y,x) in inner {
+        event_log.append(ChangeColor(y.clone(), x.clone(), "#39ede5".to_string()));
+    }
+    event_log.dump_to_file("output.txt");
+}
+
+fn print_path(matrix: &Vec<Vec<char>>, points: &HashSet<(usize, usize)>, inner: &HashSet<(usize, usize)>) {
     for (y, row) in matrix.iter().enumerate() {
         for (x, cell) in row.iter().enumerate() {
             let key = &(y, x);
@@ -176,7 +214,7 @@ fn find_far_point_length(start_point: (usize, usize), g: &Vec<Vec<HashSet<Direct
                 let path1 = v.path.clone();
                 let path2 = step.path;
 
-                let path_points: HashSet<(usize, usize)> = [path1, path2]
+                let path_points: HashSet<(usize, usize)> = [path1.clone(), path2.clone()]
                     .concat()
                     .iter()
                     .map(|x| x.clone())
@@ -187,7 +225,10 @@ fn find_far_point_length(start_point: (usize, usize), g: &Vec<Vec<HashSet<Direct
                 let result = Result {
                     path_points,
                     length: step.length,
-                    start_point
+                    start_point,
+                    last_point: key.clone(),
+                    path1,
+                    path2
                 };
                 return Some(result)
             }
@@ -262,9 +303,8 @@ fn invert_direction(direction: &Direction) -> Direction {
     }
 }
 
-fn parse(input: &str) -> (Vec<Vec<HashSet<Direction>>>, (usize, usize)) {
+fn parse(matrix: &Vec<Vec<char>>) -> (Vec<Vec<HashSet<Direction>>>, (usize, usize)) {
     let mut start_point: (usize, usize) = (0, 0);
-    let matrix = parse_to_char_matrix(input);
     let matrix = matrix
         .iter()
         .enumerate()
