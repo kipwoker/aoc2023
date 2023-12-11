@@ -103,6 +103,7 @@ fn write_event_log(matrix: &Vec<Vec<char>>, start_point: &(usize, usize), result
     event_log.dump_to_file("output.txt");
 }
 
+#[allow(dead_code)]
 fn print_path(matrix: &Vec<Vec<char>>, points: &HashSet<(usize, usize)>, inner: &HashSet<(usize, usize)>) {
     for (y, row) in matrix.iter().enumerate() {
         for (x, cell) in row.iter().enumerate() {
