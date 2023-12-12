@@ -1,12 +1,13 @@
 #![allow(unused_variables)]
 
-use std::collections::{HashSet, VecDeque};
-use crate::core::Solution;
+use crate::core::{parse_i32, Solution};
 
 pub struct Day12 {}
 
+
+#[derive(Debug, Clone)]
 struct Row {
-    key: String,
+    key: Vec<char>,
     damaged_groups: Vec<usize>,
 }
 
@@ -17,61 +18,78 @@ impl Solution for Day12 {
 
     fn solve1(&self, input: String) -> String {
         let rows = parse(input.as_str());
-        let sum = rows.iter().map(|row| search(&row)).sum::<i32>();
+        let sum = rows.iter()
+            .map(|row| search(&row))
+            .sum::<i64>();
 
         sum.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        String::new()
+        let rows = parse(input.as_str());
+        let sum = rows.iter()
+            .map(|row| unfold(&row, 5))
+            .map(|row| search(&row))
+            .sum::<i64>();
+
+        sum.to_string()
     }
 }
 
-fn search(row: &Row) -> i32 {
-    let cache: HashSet<String> = HashSet::new();
+fn unfold(row: &Row, multiplier: usize) -> Row {
+    let mut row = row.clone();
+    row.key.push('?');
+    let mut key = row.key.repeat(multiplier);
+    key.pop();
 
-    let mut q = VecDeque::new();
-    q.push_back(row.key.clone());
+    Row {
+        key,
+        damaged_groups: row.damaged_groups.repeat(multiplier),
+    }
+}
 
-    let mut counter = 0;
+fn search(row: &Row) -> i64 {
+    let n = row.key.len();
+    let m = row.damaged_groups.len();
 
-    'ww: while let Some(key) = q.pop_front() {
-        let mut i = 0;
-        let mut fill = 0;
-        let mut group = row.damaged_groups[i];
-        let mut has_question = false;
-        for (index, c) in key.chars().enumerate() {
-            match c {
-                '.' => {
-                    if fill == group {
-                        i = i + 1;
-                        group = row.damaged_groups[i];
-                    }
-                    else if fill > 0 {
-                        continue 'ww
-                    }
-                }
-                '#' => {
-                    fill += 1;
-                }
-                '?' => {
-                    has_question = true;
-                    for x in ['.', '#'] {
-                        let mut chars: Vec<char> = key.chars().clone().collect();
-                        *chars.get_mut(index).unwrap() = x;
-                        let option: String = chars.into_iter().collect();
-                        q.push_back(option);
-                    }
-                }
-                _ => { panic!("Unknown {c}") }
+    let mut cache: Vec<Vec<i64>> = vec![vec![0; m + 1]; n + 1];
+
+    cache[0][0] = 1;
+    for i in 0..n {
+        for j in 0..=m {
+            let c = row.key[i];
+            let cursor = cache[i][j];
+            if c != '#' {
+                cache[i + 1][j] += cursor;
             }
-        }
 
-        if fill == group && !has_question {
-            counter += 1;
+            if j == m {
+                continue;
+            }
+
+            let expected = row.damaged_groups[j];
+            let rest = n - i;
+            if expected > rest {
+                continue;
+            }
+
+            let left = i;
+            let right = i + expected;
+            let key = &row.key;
+            if key[left..right].contains(&'.') {
+                continue;
+            }
+
+            if n == right {
+                cache[right][j + 1] += cursor;
+            } else if key[right] != '#' {
+                cache[right + 1][j + 1] += cursor;
+            }
         }
     }
 
-    counter
+    let result = cache[n][m];
+    //println!("Row {result}");
+    result
 }
 
 fn parse(input: &str) -> Vec<Row> {
@@ -79,14 +97,10 @@ fn parse(input: &str) -> Vec<Row> {
         .split("\n")
         .map(|line| {
             let parts: Vec<&str> = line.split_whitespace().collect();
-            let key = parts[0].to_string();
-            let p1: Vec<&str> = parts[1]
-                .split(",").collect();
-            let damaged_groups =
-                p1.iter()
-                .map(|x| {
-                    i32::from_str_radix(x, 10).unwrap()
-                })
+            let key = parts[0].chars().collect();
+            let damaged_groups = parts[1]
+                .split(",")
+                .map(|x| parse_i32(x))
                 .map(|x| x as usize)
                 .collect();
 
