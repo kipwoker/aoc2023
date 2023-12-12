@@ -55,8 +55,8 @@ fn search(row: &Row) -> i64 {
 
     cache[0][0] = 1;
     for i in 0..n {
+        let c = row.key[i];
         for j in 0..=m {
-            let c = row.key[i];
             let cursor = cache[i][j];
             if c != '#' {
                 cache[i + 1][j] += cursor;
