@@ -2,6 +2,7 @@
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering::Greater;
 use std::collections::HashMap;
+use std::fmt::Display;
 use std::fs;
 use std::hash::Hash;
 
@@ -215,5 +216,31 @@ impl EventLog {
 
     pub(crate) fn append(&mut self, event: Event) {
         self.events.push(event)
+    }
+}
+
+pub(crate) fn transpose<T>(v: &Vec<Vec<T>>) -> Vec<Vec<T>>
+where T : Clone {
+    let n = v.len();
+    let m = v[0].len();
+
+    let mut result = Vec::new();
+    for j in 0..m  {
+        let mut row = Vec::new();
+        for i in 0..n {
+            row.push(v[i][j].clone());
+        }
+        result.push(row);
+    }
+
+    result
+}
+
+pub(crate) fn print_matrix<T>(v: &Vec<Vec<T>>) where T:Display {
+    for row in v {
+        for col in row {
+            print!("{} ", col);
+        }
+        println!();
     }
 }
