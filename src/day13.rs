@@ -12,7 +12,7 @@ impl Solution for Day13 {
     fn solve1(&self, input: String) -> String {
         let matrices = parse(input.as_str());
 
-        let result: i64 = matrices.iter().enumerate().map(|idx, matrix| {
+        let result: i64 = matrices.iter().map(|matrix| {
             let mut result = 0usize;
             if let Some(row_index) = find_mirror_row_index(matrix) {
                 let row = row_index + 1;
@@ -51,16 +51,37 @@ fn is_equal(a: &Vec<char>, b: &Vec<char>) -> bool {
 
 fn find_mirror_row_index(matrix: &Vec<Vec<char>>) -> Option<usize> {
     let mut cursor = &matrix[0];
-    for i in 1..matrix.len() {
+
+    let mut mirror_index = None;
+    let n = matrix.len();
+    for i in 1..n {
         let row = &matrix[i];
         if is_equal(cursor, row) {
-            return Some(i - 1)
+            mirror_index = Some(i - 1);
+            break
         }
 
         cursor = row;
     }
 
-    None
+    if mirror_index == None {
+        return None
+    }
+
+    let mut l = mirror_index.unwrap();
+    let mut r = l + 1;
+    loop {
+        if !is_equal(&matrix[l], &matrix[r]) {
+            break None
+        }
+
+        if l == 0 || r == (n - 1) {
+            break mirror_index
+        }
+
+        l -= 1;
+        r += 1;
+    }
 }
 
 fn parse(input: &str) -> Vec<Vec<Vec<char>>> {
