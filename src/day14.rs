@@ -1,6 +1,6 @@
 #![allow(unused_variables)]
 
-use crate::core::{parse_to_char_matrix, Solution, transpose};
+use crate::core::{parse_to_char_matrix, print_matrix, revert_rows, Solution, transpose_in_place};
 
 pub struct Day14 {}
 
@@ -10,26 +10,57 @@ impl Solution for Day14 {
     }
 
     fn solve1(&self, input: String) -> String {
-        let matrix = parse_to_char_matrix(input.as_str());
-        // print_matrix(&matrix);
-        // println!();
-        let mut matrix = transpose(&matrix);
-        // print_matrix(&matrix);
-        // println!();
-        tilt(&mut matrix);
+        let mut matrix = parse_to_char_matrix(input.as_str());
+        transpose_in_place(&mut matrix);
         //print_matrix(&matrix);
-        //println!();
-        // let matrix = transpose(&matrix);
-        // print_matrix(&matrix);
-        // println!();
-        let matrix = transpose(&matrix);
+        tilt(&mut matrix);
+        transpose_in_place(&mut matrix);
         let result = calc_load(&matrix);
 
         result.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        String::new()
+        let mut matrix = parse_to_char_matrix(input.as_str());
+        for i in 0..500 {
+            // if i % 1000 == 0 {
+            //     println!("Progress {i}");
+            // }
+            cycle(&mut matrix);
+            let result = calc_load(&matrix);
+            println!("Cycle {i} = {result}");
+            //print_matrix(&matrix);
+        }
+
+        let result = calc_load(&matrix);
+
+        result.to_string()
     }
+}
+
+fn cycle(matrix: &mut Vec<Vec<char>>) {
+    //north
+    transpose_in_place(matrix);
+    tilt(matrix);
+
+    //west
+    transpose_in_place(matrix);
+    tilt(matrix);
+
+    //south
+    transpose_in_place(matrix);
+    revert_rows(matrix);
+    tilt(matrix);
+
+    //east
+    transpose_in_place(matrix);
+    revert_rows(matrix);
+    tilt(matrix);
+
+    //backtracking
+    revert_rows(matrix);
+    transpose_in_place(matrix);
+    revert_rows(matrix);
+    transpose_in_place(matrix);
 }
 
 fn calc_load(matrix: &Vec<Vec<char>>) -> usize {

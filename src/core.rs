@@ -236,6 +236,29 @@ where T : Clone {
     result
 }
 
+pub(crate) fn transpose_in_place<T>(v: &mut Vec<Vec<T>>)
+where T : Clone {
+    let n = v.len();
+    let m = v[0].len();
+    if m != n {
+        panic!("Matrix is not square {n} != {m}");
+    }
+
+    for i in 0..n  {
+        for j in (i+1)..n {
+            let temp = v[i][j].clone();
+            v[i][j] = v[j][i].clone();
+            v[j][i] = temp;
+        }
+    }
+}
+
+pub(crate) fn revert_rows<T>(v: &mut Vec<Vec<T>>) {
+    for row in v {
+        row.reverse()
+    }
+}
+
 pub(crate) fn print_matrix<T>(v: &Vec<Vec<T>>) where T:Display {
     for row in v {
         for col in row {
