@@ -12,10 +12,14 @@ impl Solution for Day14 {
 
     fn solve1(&self, input: String) -> String {
         let mut matrix = parse_to_char_matrix(input.as_str());
+
+        //north
         transpose_in_place(&mut matrix);
-        //print_matrix(&matrix);
         tilt(&mut matrix);
+
+        //backtracking
         transpose_in_place(&mut matrix);
+
         let result = calc_load(&matrix);
 
         result.to_string()
@@ -100,23 +104,17 @@ fn tilt(matrix: &mut Vec<Vec<char>>) {
         let n = row.len();
         loop {
             let a = row[i];
-            //print!("{a} {i} ");
-            if row[i] != '.' {
-                //println!("-> next");
-            } else {
+            if row[i] == '.' {
                 for j in (i + 1)..n {
                     let b = row[j];
-                    //print!("-> {b} {j} ");
                     if row[j] == '#' {
                         i = j;
-                        //print!("-> end with #");
                         break;
                     }
 
                     if row[j] == 'O' {
                         row[i] = 'O';
                         row[j] = '.';
-                        //print!("-> swap {i} {j}");
                         break;
                     }
                 }
@@ -127,7 +125,5 @@ fn tilt(matrix: &mut Vec<Vec<char>>) {
             }
             i += 1;
         }
-
-        //println!();
     }
 }
