@@ -1,6 +1,7 @@
 #![allow(unused_variables)]
 
-use crate::core::{parse_to_char_matrix, print_matrix, revert_rows, Solution, transpose_in_place};
+use std::collections::HashMap;
+use crate::core::{parse_to_char_matrix, revert_rows, Solution, transpose_in_place};
 
 pub struct Day14 {}
 
@@ -20,21 +21,39 @@ impl Solution for Day14 {
         result.to_string()
     }
     fn solve2(&self, input: String) -> String {
+        let mut cache = HashMap::new();
         let mut matrix = parse_to_char_matrix(input.as_str());
-        for i in 0..500 {
-            // if i % 1000 == 0 {
-            //     println!("Progress {i}");
-            // }
+        let big_boss = 1000000000;
+        for i in 0..big_boss {
             cycle(&mut matrix);
-            let result = calc_load(&matrix);
-            println!("Cycle {i} = {result}");
-            //print_matrix(&matrix);
+            let key = calc_hash(&matrix);
+            if let Some(index) = cache.get(&key) {
+                let length = i - index;
+                let shift = (big_boss - i) % length - 1;
+                for k in 0..shift {
+                    cycle(&mut matrix);
+                }
+                break;
+            } else {
+                cache.insert(key, i);
+            }
         }
 
         let result = calc_load(&matrix);
 
         result.to_string()
     }
+}
+
+fn calc_hash(matrix: &Vec<Vec<char>>) -> String {
+    let mut result = String::new();
+    for row in matrix {
+        for cell in row {
+            result.push(cell.clone());
+        }
+    }
+
+    result
 }
 
 fn cycle(matrix: &mut Vec<Vec<char>>) {
