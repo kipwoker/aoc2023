@@ -103,10 +103,8 @@ fn tilt(matrix: &mut Vec<Vec<char>>) {
         let mut i = 0;
         let n = row.len();
         loop {
-            let a = row[i];
             if row[i] == '.' {
                 for j in (i + 1)..n {
-                    let b = row[j];
                     if row[j] == '#' {
                         i = j;
                         break;

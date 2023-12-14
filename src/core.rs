@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::cmp::Ordering::Greater;
 use std::collections::HashMap;
 use std::fmt::Display;
-use std::fs;
+use std::{fs, ptr};
 use std::hash::Hash;
 
 pub trait Solution {
@@ -246,10 +246,16 @@ where T : Clone {
 
     for i in 0..n  {
         for j in (i+1)..n {
-            let temp = v[i][j].clone();
-            v[i][j] = v[j][i].clone();
-            v[j][i] = temp;
+            swap(v, i, j);
         }
+    }
+}
+
+fn swap<T>(v: &mut Vec<Vec<T>>, i: usize, j: usize) {
+    unsafe {
+        let pointer_a: *mut T = &mut v[i][j];
+        let pointer_b: *mut T = &mut v[j][i];
+        ptr::swap(pointer_a, pointer_b);
     }
 }
 
