@@ -18,6 +18,7 @@ mod day15;
 mod day16;
 
 use std::{env, fs};
+use std::time::Instant;
 use crate::core::Solution;
 use crate::day16::Day16;
 
@@ -34,15 +35,24 @@ fn main() {
 
     let input_paths = [input_test_path, input_path];
 
+    let solvers: Vec<Box<dyn Fn(String) -> String>> = vec![
+        Box::new(|x| solution.solve1(x)),
+        Box::new(|x| solution.solve2(x)),
+    ];
+
     println!("===================");
     for path in input_paths {
         let p = path.clone();
         println!("Use input: {p}");
         let input_content = fs::read_to_string(path.clone()).expect("File not found");
-        let output1 = solution.solve1(input_content.clone());
-        println!("Result 1: {output1}");
-        let output2 = solution.solve2(input_content.clone());
-        println!("Result 2: {output2}");
+        for (index, solver) in solvers.iter().enumerate() {
+            let start_time = Instant::now();
+            let output = solver(input_content.clone());
+            let elapsed_time = start_time.elapsed();
+            let number = index + 1;
+            println!("Part {number}: {output}");
+            println!("Execution time: {:.2?}", elapsed_time);
+        }
         println!("===================");
     }
 }
