@@ -1,21 +1,14 @@
 #![allow(unused_variables)]
 
 use std::collections::{HashMap, HashSet, VecDeque};
-use Direction::Up;
-use crate::core::{Cell, EventLog, parse_to_char_matrix, Solution};
-use crate::day10::Direction::{Down, Left, Right};
+use crate::core::{Cell, Direction, EventLog, parse_to_char_matrix, Solution};
 use colored::Colorize;
+use crate::core::Direction::{Down, Left, Right, Up};
 use crate::core::Event::{ChangeColor, SetMatrix};
 
 pub struct Day10 {}
 
-#[derive(Debug, Copy, Clone, PartialEq, Hash, Eq)]
-enum Direction {
-    Up,
-    Right,
-    Down,
-    Left,
-}
+
 
 #[derive(Debug, Clone, PartialEq, Hash, Eq)]
 struct Step {

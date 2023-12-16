@@ -273,3 +273,11 @@ pub(crate) fn print_matrix<T>(v: &Vec<Vec<T>>) where T:Display {
         println!();
     }
 }
+
+#[derive(Debug, Copy, Clone, PartialEq, Hash, Eq)]
+pub(crate) enum Direction {
+    Up,
+    Right,
+    Down,
+    Left,
+}
