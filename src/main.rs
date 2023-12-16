@@ -49,7 +49,7 @@ fn main() {
         println!("| > {p}");
         let input_content = fs::read_to_string(path.clone()).expect("File not found");
         for (index, solver) in solvers.iter().enumerate() {
-            println!("| ------------------------------------------");
+            println!("|-------------------------------------------");
             let start_time = Instant::now();
             let output = solver(input_content.clone());
             let elapsed_time = start_time.elapsed();
