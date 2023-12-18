@@ -5,6 +5,7 @@ use std::collections::HashMap;
 use std::fmt::Display;
 use std::{fs, ptr};
 use std::hash::Hash;
+use crate::core::Direction::{Down, Left, Right, Up};
 
 pub trait Solution {
     fn get_day(&self) -> &'static str;
@@ -280,4 +281,15 @@ pub(crate) enum Direction {
     Right,
     Down,
     Left,
+}
+
+impl Direction {
+    pub(crate) fn get_matrix_offset(&self) -> (i32, i32) {
+        match &self {
+            Up => (-1, 0),
+            Right => (0, 1),
+            Down => (1, 0),
+            Left => (0, -1)
+        }
+    }
 }
