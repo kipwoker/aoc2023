@@ -1,7 +1,8 @@
 #![allow(dead_code)]
+
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering::Greater;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::fmt::Display;
 use std::{fs, ptr};
 use std::hash::Hash;
@@ -42,7 +43,7 @@ fn create_cell<T>(point: Point<usize>, chars: Vec<&T>) -> Cell2<usize, Vec<&T>> 
     let point = Point { x, y: point.y };
     Cell2 {
         index: point,
-        value: chars
+        value: chars,
     }
 }
 
@@ -94,7 +95,7 @@ pub(crate) fn parse_i64(input: &str) -> i64 {
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Debug)]
 pub(crate) struct Interval<T> {
     pub(crate) left: T,
-    pub(crate) right: T
+    pub(crate) right: T,
 }
 
 impl<T: PartialOrd + Copy> Interval<T> {
@@ -113,7 +114,7 @@ impl<T: PartialOrd + Copy> Interval<T> {
             let last_merged = merged_intervals.last_mut().unwrap();
 
             if current_interval.left <= last_merged.right {
-                let result= last_merged.right.partial_cmp(&current_interval.right).unwrap();
+                let result = last_merged.right.partial_cmp(&current_interval.right).unwrap();
                 last_merged.right = if result == Greater { last_merged.right } else { current_interval.right };
             } else {
                 merged_intervals.push(current_interval);
@@ -189,18 +190,18 @@ pub(crate) fn lcm_of_vector(numbers: &[i64]) -> Option<i64> {
 #[derive(Serialize, Deserialize)]
 pub(crate) struct Cell {
     pub(crate) color: String,
-    pub(crate) content: String
+    pub(crate) content: String,
 }
 
 #[derive(Serialize, Deserialize)]
 pub(crate) enum Event {
     SetMatrix(Vec<Vec<Cell>>),
-    ChangeColor(usize, usize, String)
+    ChangeColor(usize, usize, String),
 }
 
 #[derive(Serialize, Deserialize)]
 pub(crate) struct EventLog {
-    events: Vec<Event>
+    events: Vec<Event>,
 }
 
 impl EventLog {
@@ -221,12 +222,12 @@ impl EventLog {
 }
 
 pub(crate) fn transpose<T>(v: &Vec<Vec<T>>) -> Vec<Vec<T>>
-where T : Clone {
+    where T: Clone {
     let n = v.len();
     let m = v[0].len();
 
     let mut result = Vec::new();
-    for j in 0..m  {
+    for j in 0..m {
         let mut row = Vec::new();
         for i in 0..n {
             row.push(v[i][j].clone());
@@ -238,15 +239,15 @@ where T : Clone {
 }
 
 pub(crate) fn transpose_in_place<T>(v: &mut Vec<Vec<T>>)
-where T : Clone {
+    where T: Clone {
     let n = v.len();
     let m = v[0].len();
     if m != n {
         panic!("Matrix is not square {n} != {m}");
     }
 
-    for i in 0..n  {
-        for j in (i+1)..n {
+    for i in 0..n {
+        for j in (i + 1)..n {
             swap(v, i, j);
         }
     }
@@ -266,7 +267,7 @@ pub(crate) fn revert_rows<T>(v: &mut Vec<Vec<T>>) {
     }
 }
 
-pub(crate) fn print_matrix<T>(v: &Vec<Vec<T>>) where T:Display {
+pub(crate) fn print_matrix<T>(v: &Vec<Vec<T>>) where T: Display {
     for row in v {
         for col in row {
             print!("{} ", col);
@@ -291,5 +292,66 @@ impl Direction {
             Down => (1, 0),
             Left => (0, -1)
         }
+    }
+}
+
+pub(crate) trait Matrix {
+    fn get_neighbors_4(&self, point: &(usize, usize)) -> Vec<(usize, usize)>;
+}
+
+impl<T> Matrix for Vec<Vec<T>> {
+    fn get_neighbors_4(&self, point: &(usize, usize)) -> Vec<(usize, usize)> {
+        let mut result = Vec::new();
+
+        let n = &self.len();
+        let m = &self[0].len();
+
+        if point.0 > 0 {
+            result.push((point.0 - 1, point.1));
+        }
+        if point.1 > 0 {
+            result.push((point.0, point.1 - 1));
+        }
+        if point.0 < (n - 1) {
+            result.push((point.0 + 1, point.1));
+        }
+        if point.1 < (m - 1) {
+            result.push((point.0, point.1 + 1));
+        }
+
+        result
+    }
+}
+
+pub(crate) trait BFS {
+    fn bfs<TState, TSwitchState>(&self, start: TState, next: TSwitchState) -> HashSet<TState>
+        where
+            TSwitchState: Fn(&TState) -> Vec<TState>,
+            TState: Clone + Hash + Eq;
+}
+
+impl<T> BFS for Vec<Vec<T>> {
+    fn bfs<TState, TSwitchState>(&self, start: TState, next: TSwitchState) -> HashSet<TState>
+        where
+            TSwitchState: Fn(&TState) -> Vec<TState>,
+            TState: Clone + Hash + Eq
+    {
+        let mut q = VecDeque::new();
+        let mut visited = HashSet::new();
+        q.push_back(start);
+
+        while let Some(point) = q.pop_front() {
+            if visited.contains(&point) {
+                continue;
+            }
+
+            let neighbors = next(&point);
+            for p in neighbors {
+                q.push_back(p);
+                visited.insert(point.clone());
+            }
+        }
+
+        visited
     }
 }

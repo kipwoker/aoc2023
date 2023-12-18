@@ -1,8 +1,8 @@
 #![allow(unused_variables)]
 
 use std::cmp::min;
-use std::collections::{HashSet, VecDeque};
-use crate::core::{Direction, parse_i32, Solution};
+use std::collections::HashSet;
+use crate::core::{BFS, Direction, Matrix, parse_i32, Solution};
 use crate::core::Direction::{Down, Left, Right, Up};
 
 pub struct Day18 {}
@@ -174,49 +174,16 @@ fn find_pivot_point(matrix: &Vec<Vec<char>>) -> (usize, usize) {
 
 fn bfs(matrix: &Vec<Vec<char>>) -> usize {
     let start = find_pivot_point(matrix);
-    let mut q = VecDeque::new();
-    let mut visited = HashSet::new();
-    q.push_back(start);
-
-    while let Some(point) = q.pop_front() {
-        if visited.contains(&point) {
-            continue;
-        }
-
-        let neighbors = get_neighbors_4(matrix, &point);
-        for p in neighbors {
-            if matrix[p.0][p.1] == '#' {
-                continue;
-            }
-
-            q.push_back(p);
-            visited.insert(point);
-        }
-    }
-
-    visited.len()
-}
-
-fn get_neighbors_4(matrix: &Vec<Vec<char>>, point: &(usize, usize)) -> Vec<(usize, usize)> {
-    let mut result = Vec::new();
-
-    let n = matrix.len();
-    let m = matrix[0].len();
-
-    if point.0 > 0 {
-        result.push((point.0 - 1, point.1));
-    }
-    if point.1 > 0 {
-        result.push((point.0, point.1 - 1));
-    }
-    if point.0 < (n - 1) {
-        result.push((point.0 + 1, point.1));
-    }
-    if point.1 < (m - 1) {
-        result.push((point.0, point.1 + 1));
-    }
-
-    result
+    matrix.bfs(
+        start,
+        |point|
+            matrix
+                .get_neighbors_4(point)
+                .iter()
+                .filter(|p|  matrix[p.0][p.1] != '#')
+                .map(|x| *x)
+                .collect()
+    ).len()
 }
 
 fn parse(input: &str) -> Vec<DigStep> {
