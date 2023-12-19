@@ -20,7 +20,7 @@ impl Solution for Day19 {
                 let mut sum = 0;
                 for (result, new_state) in results {
                     if result {
-                        sum += calculate(&new_state)
+                        sum += new_state.map.values().map(|x| x.from).sum::<i32>()
                     }
                 }
                 sum
@@ -94,6 +94,17 @@ struct Fork {
     no: Option<Range>
 }
 
+#[derive(Debug)]
+enum Operation {
+    Condition(char, Operator, i32, Return),
+    Return(Return),
+}
+
+#[derive(Debug, Clone)]
+struct State {
+    map: HashMap<char, Range>
+}
+
 impl Range {
     pub fn apply(&self, operator: &Operator, val: &i32) -> Fork {
         match operator {
@@ -137,21 +148,6 @@ impl Range {
     }
 }
 
-#[derive(Debug)]
-enum Operation {
-    Condition(char, Operator, i32, Return),
-    Return(Return),
-}
-
-#[derive(Debug, Clone)]
-struct State {
-    map: HashMap<char, Range>
-}
-
-fn calculate(state: &State) -> i32 {
-    state.map.values().map(|x| x.from).sum()
-}
-
 fn execute(reference: &HashMap<&str, &Workflow>, state: &State, workflow: &Workflow, operation_idx: usize) -> Vec<(bool, State)> {
     let operation = &workflow.operations[operation_idx];
     let mut result: Vec<(bool, State)> = Vec::new();
@@ -163,17 +159,7 @@ fn execute(reference: &HashMap<&str, &Workflow>, state: &State, workflow: &Workf
                 let mut state = state.clone();
                 state.map.insert(var.clone(), yes);
 
-                let batch = match ret {
-                    Return::Next(key) => {
-                        let next_workflow = *reference.get(key.as_str()).unwrap();
-                        execute(reference, &state, next_workflow, 0)
-                    }
-                    Return::Accept => { vec![(true, state)] }
-                    Return::Reject => { vec![(false, state)] }
-                };
-                for item in batch {
-                    result.push(item);
-                }
+                execute_return(&mut result, reference, state, ret);
             }
 
             if let Some(no) = fork.no {
@@ -187,21 +173,25 @@ fn execute(reference: &HashMap<&str, &Workflow>, state: &State, workflow: &Workf
             }
         }
         Operation::Return(ret) => {
-            let batch = match ret {
-                Return::Next(key) => {
-                    let next_workflow = *reference.get(key.as_str()).unwrap();
-                    execute(reference, &state, next_workflow, 0)
-                }
-                Return::Accept => { vec![(true, state.clone())] }
-                Return::Reject => { vec![(false, state.clone())] }
-            };
-            for item in batch {
-                result.push(item);
-            }
+            execute_return(&mut result, reference, state.clone(), ret);
         }
     };
 
     result
+}
+
+fn execute_return(result: &mut Vec<(bool, State)>, reference: &HashMap<&str, &Workflow>, state: State, ret: &Return) {
+    let batch = match ret {
+        Return::Next(key) => {
+            let next_workflow = *reference.get(key.as_str()).unwrap();
+            execute(reference, &state, next_workflow, 0)
+        }
+        Return::Accept => { vec![(true, state)] }
+        Return::Reject => { vec![(false, state)] }
+    };
+    for item in batch {
+        result.push(item);
+    }
 }
 
 fn parse(input: &str) -> (Vec<Workflow>, Vec<State>) {
