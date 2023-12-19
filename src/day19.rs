@@ -12,9 +12,19 @@ impl Solution for Day19 {
 
     fn solve1(&self, input: String) -> String {
         let (workflows, states) = parse(input.as_str());
-
+        let reference: HashMap<&str, &Workflow> = workflows.iter().map(|w| (w.name.as_str(), w)).collect();
+        let start_workflow = reference.get("in").unwrap();
         let count: i32 = states.iter()
-            .map(|state| if execute(&workflows, state) { calculate(state) } else {0})
+            .map(|state| {
+                let results = execute(&reference, state, start_workflow, 0);
+                let mut sum = 0;
+                for (result, new_state) in results {
+                    if result {
+                        sum += calculate(&new_state)
+                    }
+                }
+                sum
+            })
             .sum();
 
         count.to_string()
@@ -43,6 +53,60 @@ enum Return {
     Reject,
 }
 
+#[derive(Debug, Clone, Copy)]
+struct Range {
+    from: i32,
+    to: i32
+}
+
+#[derive(Debug)]
+struct Fork {
+    yes: Option<Range>,
+    no: Option<Range>
+}
+
+impl Range {
+    pub fn apply(&self, operator: &Operator, val: &i32) -> Fork {
+        match operator {
+            Operator::More => {
+                if &self.from > val {
+                    Fork{
+                        yes: Some(Range { from: self.from.clone(), to: self.to.clone() }),
+                        no: None
+                    }
+                } else if &self.to < val {
+                    Fork{
+                        yes: None,
+                        no: Some(Range { from: self.from.clone(), to: self.to.clone() })
+                    }
+                } else {
+                    Fork{
+                        yes: Some(Range { from: val + 1, to: self.to.clone() }),
+                        no: Some(Range { from: self.from.clone(), to: val.clone() })
+                    }
+                }
+            }
+            Operator::Less => {
+                if &self.from > val {
+                    Fork{
+                        yes: None,
+                        no: Some(Range { from: self.from.clone(), to: self.to.clone() })
+                    }
+                } else if &self.to < val {
+                    Fork{
+                        yes: Some(Range { from: self.from.clone(), to: self.to.clone() }),
+                        no: None
+                    }
+                } else {
+                    Fork{
+                        yes: Some(Range { from: self.from.clone(), to: val - 1 }),
+                        no: Some(Range { from: val.clone(), to: self.to.clone() })
+                    }
+                }
+            }
+        }
+    }
+}
 
 #[derive(Debug)]
 enum Operation {
@@ -52,42 +116,70 @@ enum Operation {
 
 #[derive(Debug, Clone)]
 struct State {
-    map: HashMap<char, i32>
+    map: HashMap<char, Range>
 }
 
 fn calculate(state: &State) -> i32 {
-    state.map.values().sum()
+    println!(
+        "x={} m={} a={} s={}",
+        state.map.get(&'x').unwrap().from,
+        state.map.get(&'m').unwrap().from,
+        state.map.get(&'a').unwrap().from,
+        state.map.get(&'s').unwrap().from
+    );
+    state.map.values().map(|x| x.from).sum()
 }
 
-fn execute(workflows: &Vec<Workflow>, state: &State) -> bool {
-    let reference: HashMap<&str, &Vec<Operation>> = workflows.iter().map(|w| (w.name.as_str(), &w.operations)).collect();
-    let mut operations = *reference.get("in").unwrap();
+fn execute(reference: &HashMap<&str, &Workflow>, state: &State, workflow: &Workflow, operation_idx: usize) -> Vec<(bool, State)> {
+    let operation = &workflow.operations[operation_idx];
+    let mut result: Vec<(bool, State)> = Vec::new();
+    match operation {
+        Operation::Condition(var, operator, val, ret) => {
+            let range = state.map.get(var).unwrap();
+            let fork = range.apply(operator, val);
+            if let Some(yes) = fork.yes {
+                let mut state = state.clone();
+                state.map.insert(var.clone(), yes);
 
-    loop {
-        for operation in operations {
-            match operation {
-                Operation::Condition(var, operator, val, ret) => {
-                    if match operator {
-                        Operator::More => {state.map.get(var).unwrap() > val}
-                        Operator::Less => {state.map.get(var).unwrap() < val}
-                    } {
-                        match ret {
-                            Return::Next(key) => { operations = reference.get(key.as_str()).unwrap(); break; }
-                            Return::Accept => { return true; }
-                            Return::Reject => { return false; }
-                        }
+                let batch = match ret {
+                    Return::Next(key) => {
+                        let next_workflow = *reference.get(key.as_str()).unwrap();
+                        execute(reference, &state, next_workflow, 0)
                     }
+                    Return::Accept => { vec![(true, state)] }
+                    Return::Reject => { vec![(false, state)] }
+                };
+                for item in batch {
+                    result.push(item);
                 }
-                Operation::Return(ret) => {
-                    match ret {
-                        Return::Next(key) => { operations = reference.get(key.as_str()).unwrap(); break; }
-                        Return::Accept => { return true; }
-                        Return::Reject => { return false; }
-                    }
+            }
+
+            if let Some(no) = fork.no {
+                let mut state = state.clone();
+                state.map.insert(var.clone(), no);
+
+                let batch = execute(reference, &state, workflow, operation_idx + 1);
+                for item in batch {
+                    result.push(item);
                 }
             }
         }
-    }
+        Operation::Return(ret) => {
+            let batch = match ret {
+                Return::Next(key) => {
+                    let next_workflow = *reference.get(key.as_str()).unwrap();
+                    execute(reference, &state, next_workflow, 0)
+                }
+                Return::Accept => { vec![(true, state.clone())] }
+                Return::Reject => { vec![(false, state.clone())] }
+            };
+            for item in batch {
+                result.push(item);
+            }
+        }
+    };
+
+    result
 }
 
 fn parse(input: &str) -> (Vec<Workflow>, Vec<State>) {
@@ -113,7 +205,7 @@ fn parse_state(lines: &Vec<&str>, from: usize) -> Vec<State> {
                 let var = parts[0].chars().next().unwrap();
                 let val = parse_i32(parts[1]);
 
-                map.insert(var, val);
+                map.insert(var, Range{ from: val, to: val.clone() });
             });
         result.push(State { map });
     }
