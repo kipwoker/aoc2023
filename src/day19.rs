@@ -30,7 +30,36 @@ impl Solution for Day19 {
         count.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        String::new()
+        let (workflows, _) = parse(input.as_str());
+        let reference: HashMap<&str, &Workflow> = workflows.iter().map(|w| (w.name.as_str(), w)).collect();
+        let start_workflow = reference.get("in").unwrap();
+        let total = 4000;
+        let start_state = State {
+            map: HashMap::from([
+                ('x', Range{ from: 1, to: total }),
+                ('m', Range{ from: 1, to: total }),
+                ('a', Range{ from: 1, to: total }),
+                ('s', Range{ from: 1, to: total })
+            ])
+        };
+        let results = execute(&reference, &start_state, start_workflow, 0);
+
+        let mut count = 0u64;
+        for (result, new_state) in results {
+            if result {
+                let nums = new_state.map.values().map(|range| {
+                    (range.to - range.from + 1) as u64
+                }).collect::<Vec<u64>>();
+
+                let mut mul = 1u64;
+                for num in nums {
+                    mul *= num;
+                }
+
+                count += mul;
+            }
+        }
+        count.to_string()
     }
 }
 
@@ -120,13 +149,6 @@ struct State {
 }
 
 fn calculate(state: &State) -> i32 {
-    println!(
-        "x={} m={} a={} s={}",
-        state.map.get(&'x').unwrap().from,
-        state.map.get(&'m').unwrap().from,
-        state.map.get(&'a').unwrap().from,
-        state.map.get(&'s').unwrap().from
-    );
     state.map.values().map(|x| x.from).sum()
 }
 
