@@ -82,7 +82,7 @@ enum Return {
     Reject,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 struct Range {
     from: i32,
     to: i32
@@ -109,12 +109,12 @@ impl Range {
     pub fn apply(&self, operator: &Operator, val: &i32) -> Fork {
         match operator {
             Operator::More => {
-                if &self.from > val {
+                if self.greater(val) {
                     Fork{
                         yes: Some(Range { from: self.from.clone(), to: self.to.clone() }),
                         no: None
                     }
-                } else if &self.to < val {
+                } else if self.less(val) || self.equal(val) {
                     Fork{
                         yes: None,
                         no: Some(Range { from: self.from.clone(), to: self.to.clone() })
@@ -127,15 +127,15 @@ impl Range {
                 }
             }
             Operator::Less => {
-                if &self.from > val {
-                    Fork{
-                        yes: None,
-                        no: Some(Range { from: self.from.clone(), to: self.to.clone() })
-                    }
-                } else if &self.to < val {
+                if self.less(val) {
                     Fork{
                         yes: Some(Range { from: self.from.clone(), to: self.to.clone() }),
                         no: None
+                    }
+                } else if self.greater(val) || self.equal(val) {
+                    Fork{
+                        yes: None,
+                        no: Some(Range { from: self.from.clone(), to: self.to.clone() })
                     }
                 } else {
                     Fork{
@@ -145,6 +145,18 @@ impl Range {
                 }
             }
         }
+    }
+
+    pub fn greater(&self, val: &i32) -> bool {
+        &self.from > val
+    }
+
+    pub fn less(&self, val: &i32) -> bool {
+        &self.to < val
+    }
+
+    pub fn equal(&self, val: &i32) -> bool {
+        &self.to == val && &self.from == val
     }
 }
 
