@@ -51,17 +51,17 @@ impl Solution for Day21 {
         let target = 26501365;
         let mut nums = Vec::new();
         let mut flag = false;
-        let mut half = 0;
+        let mut half = 0i32;
 
         let mut prev_sum = 0;
-        let mut i = 0;
+        let mut i = 0i32;
         let mut c=  0;
         let points_limit = 2;
         loop {
             let sum = cursor.len();
 
             if flag {
-                if i % n == half {
+                if abs(i) as usize % n == abs(half) as usize {
                     nums.push(sum);
                 }
             }
@@ -93,7 +93,7 @@ impl Solution for Day21 {
             }
 
             cursor = next_q;
-            i += 1;
+            i -= 1;
             prev_sum = sum;
         }
 
@@ -114,7 +114,7 @@ impl Solution for Day21 {
 
         println!("{a} x^2 + {b} x + {c}");
 
-        let x = ((target - half) / n + 1) as i64;
+        let x = ((target - half) / n as i32 + 1) as i64;
         let a = a as i64;
         let b = b as i64;
         let c = c as i64;
@@ -132,4 +132,8 @@ fn modulo(a: &i32, b: &usize) -> usize {
     } else {
         ((c + bb) % bb) as usize
     }
+}
+
+fn abs(x: i32) -> i32 {
+    if x < 0 {-x} else {x}
 }
