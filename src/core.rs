@@ -297,6 +297,9 @@ impl Direction {
 
 pub(crate) trait Matrix {
     fn get_neighbors_4(&self, point: &(usize, usize)) -> Vec<(usize, usize)>;
+    fn get_neighbors_4_infinity(&self, point: &(i32, i32)) -> Vec<(i32, i32)>;
+    fn find<F>(&self, predicate: F) -> Option<(usize, usize)>
+        where F : Fn(&(usize, usize)) -> bool;
 }
 
 impl<T> Matrix for Vec<Vec<T>> {
@@ -320,6 +323,31 @@ impl<T> Matrix for Vec<Vec<T>> {
         }
 
         result
+    }
+
+    fn get_neighbors_4_infinity(&self, point: &(i32, i32)) -> Vec<(i32, i32)> {
+        let mut result = Vec::new();
+
+        result.push((point.0 - 1, point.1));
+        result.push((point.0, point.1 - 1));
+        result.push((point.0 + 1, point.1));
+        result.push((point.0, point.1 + 1));
+
+        result
+    }
+
+    fn find<F>(&self, predicate: F) -> Option<(usize, usize)>
+        where F : Fn(&(usize, usize)) -> bool {
+        for (y, row) in self.iter().enumerate() {
+            for (x, _) in row.iter().enumerate() {
+                let key = (y,x);
+                if predicate(&key) {
+                    return Some(key);
+                }
+            }
+        }
+
+        None
     }
 }
 
