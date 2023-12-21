@@ -43,12 +43,12 @@ fn main() {
     ];
 
     let solvers: Vec<Box<dyn Fn(String) -> String>> = vec![
-        //Box::new(|x| solution.solve1(x)),
+        Box::new(|x| solution.solve1(x)),
         Box::new(|x| solution.solve2(x)),
     ];
 
     println!("============================================");
-    for path in input_paths.iter().skip(1) {
+    for path in input_paths {
         let p = path.clone();
         println!("| > {p}");
         let input_content = fs::read_to_string(path.clone()).expect("File not found");
