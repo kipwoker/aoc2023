@@ -13,7 +13,7 @@ impl Solution for Day21 {
 
     fn solve1(&self, input: String) -> String {
         let mut matrix = parse_to_char_matrix(input.as_str());
-        let start = matrix.find(|(y,x)| matrix[*y][*x] == 'S').unwrap();
+        let start = matrix.find(|(y, x)| matrix[*y][*x] == 'S').unwrap();
         matrix[start.0][start.1] = '.';
         let start = (start.0, start.1, 0);
 
@@ -40,7 +40,7 @@ impl Solution for Day21 {
     }
     fn solve2(&self, input: String) -> String {
         let mut matrix = parse_to_char_matrix(input.as_str());
-        let start = matrix.find(|(y,x)| matrix[*y][*x] == 'S').unwrap();
+        let start = matrix.find(|(y, x)| matrix[*y][*x] == 'S').unwrap();
         matrix[start.0][start.1] = '.';
 
         let n = matrix.len() as i32;
@@ -49,28 +49,28 @@ impl Solution for Day21 {
         cursor.insert((start.0 as i32, start.1 as i32));
 
         let target = 26501365;
-        let mut nums = Vec::new();
-        let mut flag = false;
+        let mut y = Vec::new();
+        let mut outside = false;
         let mut x1 = 0i32;
 
         let mut prev_sum = 0;
         let mut i = 0i32;
 
         let direction = 1;
-        let mut c=  0;
+        let mut c = 0;
         let points_limit = 2;
         loop {
             let sum = cursor.len();
 
-            if flag {
+            if outside {
                 if abs(i) % n == abs(x1) {
-                    nums.push(sum);
-                    let x = nums.len();
+                    y.push(sum as i32);
+                    let x = y.len();
                     println!("x = {x} -> i = {i} -> y = {sum}");
                 }
             }
 
-            if nums.len() == points_limit {
+            if y.len() == points_limit {
                 break;
             }
 
@@ -79,7 +79,7 @@ impl Solution for Day21 {
             for point in cursor {
                 let next = matrix.get_neighbors_4_infinity(&point);
                 for p in next {
-                    if !flag && (p.0 < 0 || p.0 >= n || p.1 < 0 || p.1 >= n) {
+                    if !outside && leave(&n, &p) {
                         let prev = i - direction;
                         println!("x = 0 -> i = {prev} -> y = {prev_sum}");
                         println!("x = 1 -> i = {i} -> y = {sum}");
@@ -87,8 +87,8 @@ impl Solution for Day21 {
                         x1 = i;
                         c = prev_sum;
 
-                        nums.push(sum);
-                        flag = true;
+                        y.push(sum as i32);
+                        outside = true;
                     }
 
                     let y = modulo(&p.0, &n);
@@ -104,9 +104,8 @@ impl Solution for Day21 {
             prev_sum = sum;
         }
 
-        println!("{nums:?}");
+        println!("y: {y:?}");
 
-        let y: Vec<i32> = nums.iter().map(|x| x.clone() as i32).collect();
         let x = &[1, 2];
 
         let x02 = x[0] * x[0];
@@ -118,6 +117,7 @@ impl Solution for Day21 {
         println!("{a} x^2 + {b} x + {c}");
 
         let x = ((target - x1) / n + 1) as i64;
+        println!("x = {x}");
         let a = a as i64;
         let b = b as i64;
         let c = c as i64;
@@ -125,6 +125,10 @@ impl Solution for Day21 {
 
         result.to_string()
     }
+}
+
+fn leave(n: &i32, p: &(i32, i32)) -> bool {
+    p.0 < 0 || p.0 >= *n || p.1 < 0 || p.1 >= *n
 }
 
 fn modulo(a: &i32, b: &i32) -> usize {
@@ -138,5 +142,5 @@ fn modulo(a: &i32, b: &i32) -> usize {
 }
 
 fn abs(x: i32) -> i32 {
-    if x < 0 {-x} else {x}
+    if x < 0 { -x } else { x }
 }
