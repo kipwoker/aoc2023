@@ -63,7 +63,7 @@ impl Solution for Day21 {
             let sum = cursor.len();
 
             if outside {
-                if abs(i) % n == abs(x1) {
+                if abs(i) % n == 0 {
                     y.push(sum as i32);
                     let x = y.len();
                     println!("x = {x} -> i = {i} -> y = {sum}");
@@ -85,6 +85,7 @@ impl Solution for Day21 {
                         println!("x = 1 -> i = {i} -> y = {sum}");
 
                         x1 = i;
+                        i = 0;
                         c = prev_sum;
 
                         y.push(sum as i32);
