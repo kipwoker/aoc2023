@@ -1,3 +1,4 @@
+#![recursion_limit = "102400"]
 mod day01;
 mod core;
 mod day00;
@@ -22,13 +23,14 @@ mod day19;
 mod day20;
 mod day21;
 mod day22;
+mod day23;
 
 use std::{env, fs};
 use std::time::Instant;
 use crate::core::Solution;
 
 fn main() {
-    let solution = day22::Day22 {};
+    let solution = day23::Day23 {};
     let day = solution.get_day();
 
     let binding = env::current_dir().expect("Current directory not found");
