@@ -51,6 +51,7 @@
             }
         }
 
+
         const input = `7,4,60~7,4,61
 2,7,296~5,7,296
 4,5,21~7,5,21
@@ -1401,6 +1402,14 @@
         scene.rotation.y = 2.5599999999999907
         scene.rotation.x = 0.13999999999999999
 
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
@@ -1441,13 +1450,16 @@
         });
 
         const colors = [
-            'rgba(255,97,97)', // Red
-            'rgba(170,255,170)', // Green
-            'rgba(139,139,255)', // Blue
-            'rgba(248,248,95)', // Yellow
-            'rgba(253,143,253)', // Magenta
-            'rgba(132,248,248)', // Cyan
-            'rgba(250,205,122)'  // Orange
+            '#ff6161',
+            '#aaffaa',
+            '#8b8bff',
+            '#f8f85f',
+            '#fd8ffd',
+            '#84f8f8',
+            '#facd7a',
+            '#359403',
+            '#940308',
+            '#640394'
         ];
 
         let j = 0;
@@ -1463,7 +1475,9 @@
                 for (let y = y1; y <= y2; y++) {
                     for (let z = z1; z <= z2; z++) {
                         const geometry = new THREE.BoxGeometry(1, 1, 1);
-                        const material = new THREE.MeshBasicMaterial({ color });
+                        const material = new THREE.MeshPhongMaterial({ color, shininess: 150 });
+                        //material.color.setHex(color);
+                        //material.flatShading = true;
                         const cube = new THREE.Mesh(geometry, material);
 
                         cube.position.set(x, y, z);
