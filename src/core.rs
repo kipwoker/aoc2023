@@ -187,13 +187,13 @@ pub(crate) fn lcm_of_vector(numbers: &[i64]) -> Option<i64> {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub(crate) struct Cell {
     pub(crate) color: String,
     pub(crate) content: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub(crate) enum Event {
     SetMatrix(Vec<Vec<Cell>>),
     ChangeColor(usize, usize, String),
