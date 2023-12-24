@@ -2,6 +2,8 @@
 
 use crate::core::{parse_i64, Solution};
 
+const EPS: f64 = 0.0001;
+
 pub struct Day24 {}
 
 impl Solution for Day24 {
@@ -32,7 +34,7 @@ impl Solution for Day24 {
             for j in (i + 1)..n {
                 let (_, fb, lb) = &zipped[j];
                 if let Some(intersection_point) = find_intersection_point_2d(fa, fb) {
-                    if  la.satisfy(&intersection_point) &&
+                    if la.satisfy(&intersection_point) &&
                         lb.satisfy(&intersection_point) &&
                         hard_limit.satisfy(&intersection_point)
                     {
@@ -45,9 +47,173 @@ impl Solution for Day24 {
         counter.to_string()
     }
     fn solve2(&self, input: String) -> String {
-        String::new()
+        let hailstones = parse(input.as_str());
+        let result = bruteforce(&hailstones, 300);
+
+        result.to_string()
     }
 }
+
+#[derive(Debug)]
+struct Result {
+    time1: f64,
+    time2: f64,
+    point: Point,
+}
+
+impl Result {
+    fn is_infinite(&self) -> bool {
+        self.time1.is_infinite() ||
+            self.time2.is_infinite() ||
+            self.point.x.is_infinite() ||
+            self.point.y.is_infinite() ||
+            self.point.z.is_infinite()
+    }
+
+    fn is_valid(&self) -> bool {
+        !self.is_infinite() &&
+        self.time1 >= 0.0 && self.time2 >= 0.0 &&
+        self.is_round()
+    }
+
+    fn get_value(&self) -> usize {
+        self.point.x as usize + self.point.y as usize + self.point.z as usize
+    }
+}
+
+trait IsRound {
+    fn is_round(&self) -> bool;
+}
+
+
+impl IsRound for f64 {
+    fn is_round(&self) -> bool {
+        (self.round() - self).abs() < EPS
+    }
+}
+
+impl IsRound for Result {
+    fn is_round(&self) -> bool {
+        self.time1.is_round() ||
+            self.time2.is_round() ||
+            self.point.x.is_round() ||
+            self.point.y.is_round() ||
+            self.point.z.is_round()
+    }
+}
+
+
+fn bruteforce(hailstones: &Vec<Hailstone>, range: i32) -> usize {
+    let n = hailstones.len();
+
+    for i in 0..n {
+        let a = &hailstones[i];
+        for j in (i + 1)..n {
+            let b = &hailstones[j];
+
+            for vx in -range..range {
+                for vy in -range..range {
+                    for vz in -range..range {
+                        let vx = vx as f64;
+                        let vy = vy as f64;
+                        let vz = vz as f64;
+
+                        if let Some(result) = try_this(a, b, vx, vy, vz) {
+                            if !result.is_valid() {
+                                continue;
+                            }
+
+                            if !compare(hailstones, &result, vx, vy, vz, j + 1) {
+                                continue;
+                            }
+
+                            println!("{} {} {}", vx, vy, vz);
+                            println!("{:?}", result);
+                            return result.get_value();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    unreachable!()
+}
+
+fn is_zero(t: f64, pa: f64, va: f64, pb: f64, vb: f64) -> bool {
+    (pa + t * (va - vb) - pb).abs() > EPS
+}
+
+fn compare(hailstones: &Vec<Hailstone>, result: &Result, vx: f64, vy: f64, vz: f64, start_idx: usize) -> bool {
+    let n = hailstones.len();
+    for i in start_idx..n {
+        let h = &hailstones[i];
+
+        let pxi = h.start.x;
+        let pyi = h.start.y;
+        let pzi = h.start.z;
+        let vxi = h.velocity.x;
+        let vyi = h.velocity.y;
+        let vzi = h.velocity.z;
+
+        let ti = (pxi - result.point.x) / (vx - vxi);
+
+        if is_zero(ti, result.point.y, vy, pyi, vyi) || is_zero(ti, result.point.z, vz, pzi, vzi)
+        {
+            return false;
+        }
+    }
+
+    true
+}
+
+
+fn try_this(a: &Hailstone, b: &Hailstone, vx: f64, vy: f64, vz: f64) -> Option<Result> {
+    let px1 = a.start.x;
+    let py1 = a.start.y;
+    let pz1 = a.start.z;
+    let vx1 = a.velocity.x;
+    let vy1 = a.velocity.y;
+    let vz1 = a.velocity.z;
+
+    let px2 = b.start.x;
+    let py2 = b.start.y;
+    let pz2 = b.start.z;
+    let vx2 = b.velocity.x;
+    let vy2 = b.velocity.y;
+    let vz2 = b.velocity.z;
+
+    let dvy = vy1 - vy;
+    let dvx = vx1 - vx;
+    let dvz = vz1 - vz;
+    let dvx2 = vx2 - vx;
+    let dp = px2 - px1;
+
+    let t_up = py2 - py1 - dvy * dp / dvx;
+    let t_down = vy - vy2 + dvy * dvx2 / dvx;
+
+    let t2 = t_up / t_down;
+    let t1 = (dp + t2 * dvx2) / dvx;
+
+    let px = px1 + t1 * dvx;
+    let py = py1 + t1 * dvy;
+    let pz = pz1 + t1 * dvz;
+
+    if is_zero(t2, pz, vz, pz2, vz2) {
+        None
+    } else {
+        let result = Result {
+            time1: t1,
+            time2: t2,
+            point: Point {
+                x: px,
+                y: py,
+                z: pz,
+            },
+        };
+        Some(result)
+    }
+}
+
 
 #[derive(Debug, Clone)]
 struct Func2D {
