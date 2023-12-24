@@ -58,7 +58,7 @@ fn solve(input: &str, skip: bool) -> String {
     let mut visited: Vec<bool> = vec![false; n];
     let (distance, mut events) = find_max_path(&routes, &mut visited, 0, n - 1, 0).unwrap();
 
-    //reduce_events(&mut events);
+    reduce_events(&mut events);
 
     for event in events {
         event_log.append(event);
