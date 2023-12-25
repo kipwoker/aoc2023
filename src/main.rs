@@ -25,13 +25,14 @@ mod day21;
 mod day22;
 mod day23;
 mod day24;
+mod day25;
 
 use std::{env, fs};
 use std::time::Instant;
 use crate::core::Solution;
 
 fn main() {
-    let solution = day24::Day24 {};
+    let solution = day25::Day25 {};
     let day = solution.get_day();
 
     let binding = env::current_dir().expect("Current directory not found");
