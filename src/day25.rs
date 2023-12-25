@@ -31,16 +31,16 @@ fn parse(input: &str) -> Graph {
         let parts: Vec<_> = line.split_whitespace().collect();
 
         let key = &parts[0][..3];
-        let x = connections.entry(key).or_insert(HashSet::new());
+        let key_nodes = connections.entry(key).or_insert(HashSet::new());
 
         let nodes = &parts[1..];
 
-        for &y in nodes {
-            x.insert(y);
+        for &node in nodes {
+            key_nodes.insert(node);
         }
 
-        for &y in nodes {
-            let entry = connections.entry(y).or_insert(HashSet::new());
+        for &node in nodes {
+            let entry = connections.entry(node).or_insert(HashSet::new());
             entry.insert(key);
         }
     }
@@ -67,7 +67,7 @@ fn solve(g: &Graph) -> usize {
         while let Some(node) = next_q.pop_front() {
             for &next in g.connections.get(node).unwrap() {
                 if visited.insert(next) {
-                    let key = if node < next { [node, next] } else { [next, node] };
+                    let key = if node < next { (node, next) } else { (next, node) };
 
                     cache.entry(key).and_modify(|v| *v = *v + 1).or_insert(1);
 
@@ -81,9 +81,9 @@ fn solve(g: &Graph) -> usize {
     sorted.sort_unstable_by_key(|e| e.1);
     sorted.reverse();
 
-    let to_remove: Vec<_> = sorted.iter().take(3).map(|p| *p.0).collect();
+    let to_remove: HashSet<_> = sorted.iter().take(3).map(|p| (p.0.0, p.0.1)).collect();
     let start = *g.connections.keys().next().unwrap();
-    let mut total = 1;
+    let mut first = 1;
 
     let mut next_q = VecDeque::new();
     let mut visited = HashSet::new();
@@ -92,19 +92,21 @@ fn solve(g: &Graph) -> usize {
 
     while let Some(node) = next_q.pop_front() {
         for &next in &g.connections[node] {
-            let key = if node < next { [node, next] } else { [next, node] };
+            let key = if node < next { (node, next) } else { (next, node) };
 
             if to_remove.contains(&key) {
                 continue;
             }
 
             if visited.insert(next) {
-                total += 1;
+                first += 1;
                 next_q.push_back(next);
             }
         }
     }
 
-    total * (g.connections.len() - total)
+    let second = g.connections.len() - first;
+
+    first * second
 }
 
